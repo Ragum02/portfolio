@@ -63,9 +63,9 @@ background-position: 10px 10px;
     background-position: center;
     position: relative;
     margin: 30px;
-    animation: rotate 60s infinite linear;
+    animation: rotate 45s infinite linear;
     box-shadow:
-      0 0 30px rgba(0, 0, 0, 0.5),
+      0 0 30px rgb(0, 0, 0, 0.8),
       inset -10px -10px 60px rgba(0, 0, 0, 0.6);
 
     &::before {
@@ -85,7 +85,7 @@ background-position: 10px 10px;
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.555), transparent 90%);
+      background: radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.555), rgb(255, 255, 255) 90%);
       mix-blend-mode: multiply;
       pointer-events: none;
     }
@@ -131,7 +131,7 @@ background-position: 10px 10px;
   background: white;
   border-radius: 50%;
   box-shadow: 0 0 8px white;
-  animation: twinkle 2s infinite alternate ease-in-out;
+  animation: twinkle 6s infinite alternate ease-in-out;
 
   &.bright-star-1 { top: 10%; left: 30%; animation-delay: 0s; }
   &.bright-star-2 { top: 20%; right: 20%; animation-delay: 0.5s; }
@@ -250,7 +250,6 @@ background-position: 10px 10px;
 .space-menu-item {
   margin-left:20px;
   color: #fff;
-  font-family: 'Orbitron', sans-serif;
   font-size: 16px;
   padding: 8px 16px;
   cursor: pointer;
@@ -341,6 +340,7 @@ background-position: 10px 10px;
   overflow: hidden;
   z-index: 1;
   border-radius: 10px;
+  animation: showMainContainer 1.75s ease-in-out 1;
   &::after {
     content: '';
     position: absolute;
@@ -360,10 +360,138 @@ background-position: 10px 10px;
   }
 }
 
-footer{
-  position:fixed;
-  bottom:0;
-  background-color: red;
-  width: 100vw;
-  height: 100px;
+@keyframes showMainContainer{
+  0%{transform:translateY(-100%) translateX(-50%)}
+  100%{transform:translateY(0%) translateX(-50%)};
 }
+
+
+
+/**************** Le footer et le header ***************/
+header {
+  background: transparent;
+  padding: 1em 0;
+  width: 100vw;
+  height: 3vh;
+  border: 2px solid #00ffff;
+  box-shadow: inset 0 0 2000px #00ffff25;
+  overflow: hidden;
+  animation:headerSlide 2s linear 1;
+  ul {
+    justify-content: space-between;
+    align-items: center;
+    width: 800vw;
+    gap: 85em;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    animation: newsSlider 180s infinite linear;
+    padding: 0 2em;
+
+    li {
+      font-size:0.9em;
+      text-transform: uppercase;
+      animation: glitch 6s infinite linear alternate-reverse;
+      position: relative;
+    }
+  }
+}
+
+@keyframes headerSlide{
+  0%{
+    transform:translateX(-100%);
+  }
+  100%{
+    transform:translate(0%)
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 1px 0 violet, -1px 0 blue;
+  }
+  20% {
+    text-shadow: -1px 0 violet, 1px 0 blue;
+  }
+  40% {
+    text-shadow: 2px 0 violet, -2px 0 blue;
+  }
+  60% {
+    text-shadow: -2px 0 violet, 2px 0 blue;
+  }
+  80% {
+    text-shadow: 3px 0 violet, -3px 0 blue;
+  }
+  100% {
+    text-shadow: -3px 0 violet, 3px 0 blue;
+  }
+}
+
+@keyframes newsSlider{
+  0%{
+    transform: translateX(15%)
+  }
+  100%{
+    transform: translateX(-100%)
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 280px;
+  background: transparent;
+  border: 2px solid #00ffff;
+  box-shadow: inset 0 0 50px #00ffff25;
+  border-radius: 5px;
+  padding: 15px;
+  color: #e0ffff;
+  z-index: 100;
+}
+
+.screen-header {
+  padding: 5px 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #00ffff;
+  color: white;
+  font-weight: bold;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+}
+
+.cyber-link {
+  display: flex;
+  align-items: center;
+  color: #e0ffff;
+  text-decoration: none;
+  padding: 5px;
+  border-left: 2px solid #00ffff;
+  transition: background-color 0.2s;
+
+}
+
+.cyber-link:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+}
+
+.link-icon {
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+  color: #00ffff;
+}
+
+.link-text {
+  font-size: 0.75em;
+}
+

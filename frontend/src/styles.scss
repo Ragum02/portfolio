@@ -1,5 +1,13 @@
 @use './reset';
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@font-face {
+  font-family: 'Silkscreen';
+  src: url('/fonts/Silkscreen-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+*{
+  font-family: 'Silkscreen';
+}
 body{
   overflow: hidden;
 }
