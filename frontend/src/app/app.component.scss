@@ -25,7 +25,7 @@
   background-size: 40px 40px;
   z-index: -2;
   animation: displayGrid 2s linear 1,
-  scrollingGrid 60s linear infinite;
+  scrollingGrid 60s linear infinite forwards;
 }
 
 @keyframes displayGrid {
@@ -43,7 +43,7 @@
 background-position: 0;
   }
   100% {
-background-position: 10px 10px;
+background-position: 10px 0 0 0;
   }
 }
 
@@ -223,13 +223,15 @@ background-position: 10px 10px;
 /************  Fin de tout ce qui concerne le background ***************************/
 
 
-/* Menu spatial */
+
+/************************ Div qui affiche mon contenu ***********************/
+
 .space-nav {
   position: fixed;
   display: flex;
   flex-direction: column;
   top: 30px;
-  left: 5%;
+  left: 3.5em;
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
@@ -302,8 +304,6 @@ background-position: 10px 10px;
   box-shadow:inset 0px 5px 5px black;
 }
 
-/************************ Div qui affiche mon contenu ***********************/
-
 @keyframes softGlitch {
   0%, 100% {
     transform: translate(0, 0);
@@ -329,8 +329,9 @@ background-position: 10px 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background: transparent;
   backdrop-filter: blur(2px);
   width: 60vw;
@@ -358,6 +359,9 @@ background-position: 10px 10px;
     z-index:-1;
     mix-blend-mode: screen;
   }
+  main{
+    width:100%;
+  }
 }
 
 @keyframes showMainContainer{
@@ -368,7 +372,7 @@ background-position: 10px 10px;
 
 
 /**************** Le footer et le header ***************/
-header {
+.header {
   background: transparent;
   padding: 1em 0;
   width: 100vw;
@@ -380,7 +384,7 @@ header {
   ul {
     justify-content: space-between;
     align-items: center;
-    width: 800vw;
+    text-wrap: nowrap;
     gap: 85em;
     height: 100%;
     display: flex;
@@ -430,14 +434,14 @@ header {
 
 @keyframes newsSlider{
   0%{
-    transform: translateX(15%)
+    transform: translateX(110%)
   }
   100%{
-    transform: translateX(-100%)
+    transform: translateX(-900%)
   }
 }
 
-footer {
+.footer {
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -495,3 +499,26 @@ footer {
   font-size: 0.75em;
 }
 
+/************* Ecran style DiVX avec les icons ***********/
+
+.main-container-footer{
+  align-self:flex-start;
+  position:fixed;
+  bottom:5%;
+  left:5%;
+.icons-screen{
+  background:transparent;
+  box-shadow: inset 0 0 50px #535353d5;
+  border:1px solid rgba(255, 255, 255, 0.308);
+  width:12em;
+  height:12em;
+  align-self:flex-start;
+}
+}
+
+.round-placeholder{
+  width:25px;
+  height:25px;
+  background-color: white;
+  border-radius: 50%;
+}

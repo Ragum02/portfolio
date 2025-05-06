@@ -24,7 +24,7 @@
 </div>
 </div>
 
-<header>
+<header class="header">
   <ul>
     <li>"Ce dev' est mon preferé de toute la citadelle !" - Commandant Shepard.</li>
     <li>Le propriétaire du X-Wing mal garé est prié de se rendre à la baie de lancement.</li>
@@ -38,6 +38,7 @@
 </header>
 
 <div class="main-container">
+  <aside>
   <nav class="space-nav">
     <a
     class="space-menu-item"
@@ -67,11 +68,19 @@
     <span class="link-text">Contact</span>
   </a>
   </nav>
+</aside>
+<main>
   <router-outlet></router-outlet>
+</main>
+<footer class="main-container-footer">
+  <div class="icons-screen">
+    <div class="round-placeholder"></div>
+  </div>
+</footer>
 </div>
 
 
-<footer>
+<footer class="footer">
   <div class="screen-header">Profil</div>
   <div class="links-container">
     <a href="https://github.com/Ragum02" class="cyber-link">
