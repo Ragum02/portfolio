@@ -360,6 +360,7 @@ background-position: 10px 0 0 0;
     mix-blend-mode: screen;
   }
   main{
+    height:100%;
     width:100%;
   }
 }
@@ -522,6 +523,32 @@ background-position: 10px 0 0 0;
   background-color: white;
   border-radius: 50%;
   position: absolute;
-  transition: transform 360s;
+  transition: transform 0.2s;
   cursor: pointer;
+}
+
+
+.audio-container{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content: center;
+  gap:0.5em;
+  input[type=range].range{
+    border-radius: 3px;
+    appearance: none;
+    padding: 0;
+    outline: none;
+    border: 3px solid rgb(122, 122, 122);
+    background-color: transparent;
+    box-sizing: border-box;
+  }
+  input[type=range].volume{
+    margin: 0 4em;
+  }
+   .range{
+    width:100%;
+   }
+
 }

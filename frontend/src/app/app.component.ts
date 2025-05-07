@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +12,6 @@ interface BouncingIcon {
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterLinkActive, RouterLink , RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
@@ -166,4 +165,51 @@ export class AppComponent implements AfterViewInit  {
 
     requestAnimationFrame(() => this.animate());
   }
+
+  @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
+
+  duration = 0;
+  currentTime = 30;
+  volume = 0.03;
+  isPlaying = false
+
+  initAudio() {
+    const audio = this.audioPlayer.nativeElement;
+    this.duration = audio.duration;
+    audio.currentTime = this.currentTime;
+    audio.volume = this.volume;
+  }
+
+  toggleLecture() {
+    const audio = this.audioPlayer.nativeElement;
+    if (audio.paused) {
+      this.isPlaying = true;
+      audio.play();
+    } else {
+      this.isPlaying = false;
+      audio.pause();
+    }
+  }
+
+  updateTime() {
+    this.currentTime = this.audioPlayer.nativeElement.currentTime;
+  }
+
+  seek(event: Event) {
+    const value = Number((event.target as HTMLInputElement).value);
+    this.audioPlayer.nativeElement.currentTime = value;
+  }
+
+  changerVolume(event: Event) {
+    const value = Number((event.target as HTMLInputElement).value);
+    this.volume = value;
+    this.audioPlayer.nativeElement.volume = value;
+  }
+
+  formatTime(time: number): string {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  }
+
 }
