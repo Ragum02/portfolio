@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit  {
 
   ngAfterViewInit() {
     setTimeout(()=> {
-      this.generateStars(10);
+      this.generateStars(30);
       this.initBouncingIcons();
     },1)
 
