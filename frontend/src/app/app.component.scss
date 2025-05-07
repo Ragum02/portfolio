@@ -521,4 +521,7 @@ background-position: 10px 0 0 0;
   height:25px;
   background-color: white;
   border-radius: 50%;
+  position: absolute;
+  transition: transform 360s;
+  cursor: pointer;
 }

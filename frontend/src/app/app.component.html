@@ -73,8 +73,8 @@
   <router-outlet></router-outlet>
 </main>
 <footer class="main-container-footer">
-  <div class="icons-screen">
-    <div class="round-placeholder"></div>
+  <div class="icons-screen" #iconScreen>
+    <div class="round-placeholder" *ngFor="let icon of icons" #iconDiv></div>
   </div>
 </footer>
 </div>
