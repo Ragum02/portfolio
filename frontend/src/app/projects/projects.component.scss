@@ -13,7 +13,6 @@
     margin-top:1em;
    }
   .carousel{
-    border:1px solid blue;
     width:80%;
     height:50%;
     display:flex;
@@ -29,17 +28,7 @@
       align-items: center;
       justify-content: space-evenly;
      }
-    article{
-      background-color:red;
-      min-width: 80%;
-      height:90%;
-    }
-    button{
-      background-color: rgba(0, 0, 255, 0.356);
-      height:20%;
-      align-self: center;
-      border-radius: 5px;
-    }
+
   }
 
 }
@@ -48,9 +37,14 @@
 
 .embla {
   overflow: hidden;
+  button{
+    position: absolute;
+    right:50%;
+}
 }
 .embla__container {
   display: flex;
+
 }
 .embla__slide {
   border:1px solid red;
