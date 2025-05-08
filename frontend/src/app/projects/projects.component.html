@@ -1,4 +1,30 @@
 <div class="projects-container">
   <h1 class="projects-title">Voici mes projets: </h1>
-  <div class="carousel">
+  <div *ngIf="projects && projects.length >0" class="carousel">
+
+    <article *ngFor="let project of projects; let i=index" [ngClass]="{'article-active' : selectedIndex === i}" class="fade">
+      <figure>
+
+      <img [src]="project.image" alt="Image du projet {{ i + 1 }}" />
+      <figcaption>
+        {{project.name}}</figcaption>
+        </figure>
+        <div class="article-text">
+        <p>{{project.content}}</p>
+      </div>
+        <a [href]="project.url" target="_blank" rel="noopener noreferrer">hey</a>
+
+    </article>
+    <div class="carousel-indicators-container">
+      <span class="arrow left-arrow"
+      tabindex="0"
+      (click)="previousImage()"
+      (keyup)="onKeyUp($event)"><</span>
+      <span *ngFor="let indicator of projects; let i=index" class="indicator" [ngClass]="{'active' : selectedIndex === i}" (click)="selectImage(i)">
+      </span>
+      <span class="arrow right-arrow"
+      tabindex="0"
+      (click)="nextImage()"
+      (keyup)="onKeyUp($event)">></span>
+    </div>
 </div>

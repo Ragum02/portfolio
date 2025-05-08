@@ -18,7 +18,7 @@ interface BouncingIcon {
 })
 export class AppComponent implements AfterViewInit  {
   title = "portfolio";
-  icons = new Array(5);
+  icons = new Array(14);
 
   @ViewChild('iconScreen', { static: true }) screenRef!: ElementRef<HTMLDivElement>;
   @ViewChildren('iconDiv') iconElements!: QueryList<ElementRef<HTMLDivElement>>;
@@ -73,10 +73,10 @@ export class AppComponent implements AfterViewInit  {
 
     this.iconElements.forEach(elRef => {
       const el = elRef.nativeElement;
-      const x = Math.random() * (screen.clientWidth - 40);
-      const y = Math.random() * (screen.clientHeight - 40);
-      const dx = (Math.random() * 0.05 + 0.1) * (Math.random() < 0.5 ? -1 : 1);
-      const dy = (Math.random() * 0.05 + 0.1) * (Math.random() < 0.5 ? -1 : 1);
+      const x = Math.random() * (screen.clientWidth - 25);
+      const y = Math.random() * (screen.clientHeight - 25);
+      const dx = (Math.random() * 0.05 + 0.15) * (Math.random() < 0.5 ? -1 : 1);
+      const dy = (Math.random() * 0.05 + 0.15) * (Math.random() < 0.5 ? -1 : 1);
 
       const icon: BouncingIcon = { el, x, y, dx, dy };
       el.style.left = `${x}px`;
