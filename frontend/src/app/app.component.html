@@ -74,7 +74,12 @@
 </main>
 <footer class="main-container-footer">
   <div class="icons-screen" #iconScreen>
-    <div class="round-placeholder" *ngFor="let icon of icons" #iconDiv></div>
+     <div
+    *ngFor="let icon of icons; let i = index"
+    #iconDiv
+    class="round-placeholder"
+    [attr.data-index]="i"
+  ></div>
   </div>
 </footer>
 </div>

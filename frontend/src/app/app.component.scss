@@ -514,20 +514,21 @@ background-position: 10px 0 0 0;
   background:transparent;
   box-shadow: inset 0 0 50px #535353d5;
   border:1px solid rgba(255, 255, 255, 0.308);
-  width:12em;
-  height:12em;
+  width:15em;
+  height:15em;
   align-self:flex-start;
 }
 }
 
 .round-placeholder{
+  background: white;
   width:25px;
   height:25px;
-  background-color: white;
   border-radius: 50%;
   position: absolute;
   transition: transform 0.2s;
   cursor: pointer;
+  animation: 45s rotation infinite forwards alternate;
 }
 
 
@@ -554,4 +555,13 @@ background-position: 10px 0 0 0;
     width:100%;
    }
 
+}
+
+@keyframes rotation {
+  0%{
+    transform:rotate(0)
+  }
+  100%{
+    transform:rotate(360deg)
+  }
 }

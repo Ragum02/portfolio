@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {Component, ElementRef, QueryList, ViewChild, ViewChildren, OnInit } from '@angular/core';
 import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
@@ -49,26 +49,28 @@ interface BouncingIcon {
 })
 
 
-export class AppComponent implements AfterViewInit  {
+export class AppComponent implements OnInit  {
 prepareRoute(outlet: RouterOutlet) {
   return outlet?.activatedRouteData?.['animation'];
 }
   title = "Accueil";
-  icons = new Array(14);
+  icons: any[] = [];
 
   @ViewChild('iconScreen', { static: true }) screenRef!: ElementRef<HTMLDivElement>;
   @ViewChildren('iconDiv') iconElements!: QueryList<ElementRef<HTMLDivElement>>;
 
   private bouncingIcons: BouncingIcon[] = [];
 
-  ngAfterViewInit() {
-    setTimeout(()=> {
-      this.generateStars(30);
-      this.initBouncingIcons();
-    },1)
 
+  async ngOnInit() {
+    const response = await fetch('http://localhost:8000/api/tags')
+
+    this.icons = Object.values(await response.json());
+    setTimeout(() => {
+    this.generateStars(30);
+    this.initBouncingIcons();
+  }, 0);
   }
-
   generateStars(count: number): void {
     const container = document.querySelector('.space-background');
     if (!container) return;
@@ -104,35 +106,34 @@ prepareRoute(outlet: RouterOutlet) {
 
   }
 
-  initBouncingIcons(): void{
+initBouncingIcons(): void {
   const screen = this.screenRef.nativeElement;
 
-    this.iconElements.forEach(elRef => {
-      const el = elRef.nativeElement;
-      const x = Math.random() * (screen.clientWidth - 25);
-      const y = Math.random() * (screen.clientHeight - 25);
-      const dx = (Math.random() * 0.05 + 0.15) * (Math.random() < 0.5 ? -1 : 1);
-      const dy = (Math.random() * 0.05 + 0.15) * (Math.random() < 0.5 ? -1 : 1);
+  this.iconElements.forEach((elRef, index) => {
+    const el = elRef.nativeElement;
+    const iconData = this.icons[index];
+    const x = Math.random() * (screen.clientWidth - 25);
+    const y = Math.random() * (screen.clientHeight - 25);
+    const dx = (Math.random() * 0.05 + 0.15) * (Math.random() < 0.5 ? -1 : 1);
+    const dy = (Math.random() * 0.05 + 0.15) * (Math.random() < 0.5 ? -1 : 1);
 
-      const icon: BouncingIcon = { el, x, y, dx, dy };
-      el.style.left = `${x}px`;
-      el.style.top = `${y}px`;
+    const icon: BouncingIcon = { el, x, y, dx, dy };
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
 
-      el.addEventListener('mouseenter', () => {
-        icon.dx = (Math.random() * 3 + 1) * (Math.random() < 0.5 ? -1 : 1);
-        icon.dy = (Math.random() * 3 + 1) * (Math.random() < 0.5 ? -1 : 1);
+    if (iconData && iconData.icon) {
 
-        setTimeout(() => {
-          icon.dx = (Math.random() * 0.05 + 0.1) * (Math.random() < 0.5 ? -1 : 1);
-          icon.dy = (Math.random() * 0.05 + 0.1) * (Math.random() < 0.5 ? -1 : 1);
-        }, 2000);
-      });
+      el.style.backgroundImage = `url(${iconData.icon})`;
+      el.style.backgroundSize = 'contain';
+      el.style.backgroundPosition = 'center';
+      el.style.backgroundRepeat = 'no-repeat';
+    }
 
-      this.bouncingIcons.push(icon);
-    });
+    this.bouncingIcons.push(icon);
+  });
 
-    this.animate();
-  }
+  this.animate();
+}
 
   private animate(): void {
     const screen = this.screenRef.nativeElement;
