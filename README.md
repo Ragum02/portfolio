@@ -5,3 +5,7 @@ Fait en PHP avec Laravel puisque le début de la formation je suis en JAVASCRIPT
 
 ## Pour le front: 
 Encor en cours de reflexion mais de grande chance que ce soit du Angular, son côté "strict" et moin bordel m'interesse !
+
+
+
+https://to-do-day.vercel.app/

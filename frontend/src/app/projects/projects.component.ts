@@ -15,6 +15,7 @@ projects: any[] = [];
 async ngOnInit() {
   const response = await fetch('http://localhost:8000/api/projects');
   this.projects = await response.json();
+  console.log(this.projects);
   }
 
   //[

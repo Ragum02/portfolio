@@ -1,3 +1,4 @@
+@use '../app.component.scss';
 
 .projects-container{
   position: absolute;
@@ -31,12 +32,32 @@
         height:90%;
         display:none;
         border-radius: 18px;
+        figcaption{
+          font-size: 1.75em;
+          text-shadow: rgb(29, 143, 0) 1px 1px 5px;
+        }
         .article-text{
           margin:1em;
           border:1px solid grey;
           overflow-Y: scroll;
         }
+        .tags-container{
+          display: flex;
+          flex-direction: row;
+          gap: 0.25em;
+          justify-content: center;
+          align-items: center;
+          .tag{
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            box-shadow: 1px 1px 4px inset rgb(255, 0, 140);
+            border-radius: 30%;
+            width: 40px;
+            height: 30px;
 
+          }
+        }
       }
       .article-active{
         display:flex;
@@ -49,7 +70,10 @@
             max-height: 300px;
           }
       }
-
+      span{
+        font-size: 1.2em;
+        animation:glitch 12s infinite;
+      }
   }
 
 

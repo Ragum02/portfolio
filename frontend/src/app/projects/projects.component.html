@@ -1,6 +1,6 @@
 <div class="projects-container">
   <h1 class="projects-title">Voici mes projets: </h1>
-  <div *ngIf="projects && projects.length >0" class="carousel">
+  <div class="carousel">
 
     <article *ngFor="let project of projects; let i=index" [ngClass]="{'article-active' : selectedIndex === i}" class="fade">
       <figure>
@@ -9,10 +9,17 @@
       <figcaption>
         {{project.name}}</figcaption>
         </figure>
+        <div class="tags-container">
+        <div
+           class="tag"
+           *ngFor="let tag of project.tags"
+           [style.background-image]="'url(' + tag.icon + ')'">
+        </div>
+        </div>
         <div class="article-text">
-        <p>{{project.content}}</p>
+        <p style="white-space: pre-line; margin: 0; padding: 0; display: block;">{{project.content}}</p>
       </div>
-        <a [href]="project.url" target="_blank" rel="noopener noreferrer">hey</a>
+        <a [href]="project.url" target="_blank" rel="noopener noreferrer">Lien vers > <span class="glitch-effect">{{project.name}}</span></a>
 
     </article>
     <div class="carousel-indicators-container">

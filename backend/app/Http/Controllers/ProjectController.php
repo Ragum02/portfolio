@@ -13,7 +13,7 @@ class ProjectController extends Controller
 {
     public function getAllProjects(){
         $projects = Project::with(['tags' => function ($query) {
-            $query->select('tags.id', 'tags.name');
+            $query->select('tags.id', 'tags.name', 'tags.icon');
         }])->get();
     return response()->json($projects);       // Renvoi en JSON
     }

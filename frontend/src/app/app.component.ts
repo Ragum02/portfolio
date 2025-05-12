@@ -112,10 +112,10 @@ initBouncingIcons(): void {
   this.iconElements.forEach((elRef, index) => {
     const el = elRef.nativeElement;
     const iconData = this.icons[index];
-    const x = Math.random() * (screen.clientWidth - 25);
-    const y = Math.random() * (screen.clientHeight - 25);
-    const dx = (Math.random() * 0.05 + 0.15) * (Math.random() < 0.5 ? -1 : 1);
-    const dy = (Math.random() * 0.05 + 0.15) * (Math.random() < 0.5 ? -1 : 1);
+    const x = Math.random() * (screen.clientWidth - 32);
+    const y = Math.random() * (screen.clientHeight - 32);
+    const dx = (Math.random() * 0.02 + 0.075) * (Math.random() < 0.5 ? -1 : 1);
+    const dy = (Math.random() * 0.02 + 0.075) * (Math.random() < 0.5 ? -1 : 1);
 
     const icon: BouncingIcon = { el, x, y, dx, dy };
     el.style.left = `${x}px`;
@@ -143,8 +143,8 @@ initBouncingIcons(): void {
       icon.y += icon.dy;
 
       // Collision avec les bords de l'écran
-      const maxX = screen.clientWidth - 25;
-      const maxY = screen.clientHeight - 25;
+      const maxX = screen.clientWidth - 32;
+      const maxY = screen.clientHeight - 32;
       if (icon.x <= 0) {
         icon.x = 0;  // Positionner l'icône directement au bord gauche
         icon.dx *= -1; // Inverser la direction de la vitesse horizontale
@@ -166,7 +166,7 @@ initBouncingIcons(): void {
         if (icon === otherIcon) return;
 
         const distance = Math.sqrt(Math.pow(icon.x - otherIcon.x, 2) + Math.pow(icon.y - otherIcon.y, 2));
-        const collisionDistance = 25; // distance minimale pour détecter la collision
+        const collisionDistance = 32; // distance minimale pour détecter la collision
         if (distance < collisionDistance) {
           // Inverser les directions des vitesses lors de la collision
           const tempDx = icon.dx;
@@ -186,12 +186,6 @@ initBouncingIcons(): void {
           otherIcon.x -= offsetX;
           otherIcon.y -= offsetY;
 
-          setTimeout(() => {
-            icon.dx = (Math.random() * 0.05 + 0.1) * (Math.random() < 0.5 ? -1 : 1);
-            icon.dy = (Math.random() * 0.05 + 0.1) * (Math.random() < 0.5 ? -1 : 1);
-            otherIcon.dx = (Math.random() * 0.05 + 0.1) * (Math.random() < 0.5 ? -1 : 1);
-            otherIcon.dy = (Math.random() * 0.05 + 0.1) * (Math.random() < 0.5 ? -1 : 1);
-          }, 2000);
         }
       });
 
