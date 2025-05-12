@@ -1,4 +1,5 @@
 @use './reset';
+@use './app/app.component.scss';
 @font-face {
   font-family: 'Silkscreen';
   src: url('/fonts/Silkscreen-Regular.ttf') format('truetype');
@@ -7,6 +8,7 @@
 }
 *{
   font-family: 'Silkscreen', sans-serif;
+  color: white;
 }
 body{
   overflow: hidden;
@@ -126,3 +128,31 @@ body{
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
   }
 }
+
+h1{
+  text-shadow: rgb(234, 0, 255) 3px 1px 3px;
+  text-decoration: underline dashed;
+  text-underline-offset: 8px;
+}
+
+
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #790073 #0098a3;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 100px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #01003d;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #0098a3;
+    border-radius: 2px;
+    border: 9px solid #ff0000;
+  }

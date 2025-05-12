@@ -1,8 +1,20 @@
-<h1 class="home-title glitch-effect"> Ici petite page de contacte!</h1>
-<p>Peut être un form + les coordonnées</p>
+<div class="contact-container">
 
+<h1 class="home-title glitch-effect"> Un petit message ?</h1>
+
+
+<div class="form-container">
 <form>
-  <input type="email" />
-
-
+  <label for="email">Veuillez renseigner votre email:
+  <input autocomplete="email" id="email" type="email" name="email" placeholder="votre@email.com"/>
+  </label>
+  <label for="mail-title">Veuillez renseigner l'objet de votre message:
+  <input id="mail-title" type="text" name="mail-title" placeholder="L'objet de votre message">
+  </label>
+  <label for="mail-message">Veuillez renseigner votre message:
+  <textarea id="mail-message" placeholder="Votre message" name="mail-message" rows="12"></textarea>
+</label>
+<input aria-label="submit button" type="submit" class="dot--green">
 </form>
+</div>
+</div>

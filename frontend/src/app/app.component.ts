@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { animate, group, query, style, transition, trigger } from '@angular/animations';
+
 
 interface BouncingIcon {
   el: HTMLElement;
@@ -14,10 +16,44 @@ interface BouncingIcon {
   selector: 'app-root',
   imports: [RouterLinkActive, RouterLink , RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('routeAnimations', [
+      transition('* <=> *', [
+        query(':enter, :leave', [
+          style({
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%'
+          })
+        ], { optional: true }),
+
+        query(':enter', [
+          style({ opacity: 0 })
+        ], { optional: true }),
+
+        group([
+          query(':leave', [
+            animate('300ms ease-out', style({ opacity: 0 }))
+          ], { optional: true }),
+
+          query(':enter', [
+            animate('300ms ease-in', style({ opacity: 1 }))
+          ], { optional: true })
+        ])
+      ])
+    ])
+  ]
 })
+
+
 export class AppComponent implements AfterViewInit  {
-  title = "portfolio";
+prepareRoute(outlet: RouterOutlet) {
+  return outlet?.activatedRouteData?.['animation'];
+}
+  title = "Accueil";
   icons = new Array(14);
 
   @ViewChild('iconScreen', { static: true }) screenRef!: ElementRef<HTMLDivElement>;

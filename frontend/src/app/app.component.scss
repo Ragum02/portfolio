@@ -360,8 +360,9 @@ background-position: 10px 0 0 0;
     mix-blend-mode: screen;
   }
   main{
+    position: relative;
     height:100%;
-    width:100%;
+    width:80%;
   }
 }
 
@@ -463,8 +464,11 @@ background-position: 10px 0 0 0;
   letter-spacing: 1px;
   margin-bottom: 10px;
   border-bottom: 1px solid #00ffff;
-  color: white;
   font-weight: bold;
+
+    button{
+      color:black;
+    }
 }
 
 .links-container {
@@ -477,7 +481,6 @@ background-position: 10px 0 0 0;
 .cyber-link {
   display: flex;
   align-items: center;
-  color: #e0ffff;
   text-decoration: none;
   padding: 5px;
   border-left: 2px solid #00ffff;
