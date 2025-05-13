@@ -1,7 +1,7 @@
 <div class="login-container">
-  <form action="POST">
-    <input aria-label="username" type="text" id="username" name="username" />
-    <input aria-label="password" type="password" id="password" name="password"/>
-    <input aria-label="submit" type="submit" />
+  <form [formGroup]="login">
+    <input formControlName="username" aria-label="username" type="text" id="username" name="username" />
+    <input formControlName="password" aria-label="password" type="password" id="password" name="password"/>
+    <button aria-label="submit" (click)="submit()" >Envoyer</button>
   </form>
 </div>

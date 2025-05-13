@@ -85,7 +85,7 @@
 </div>
 
 <footer class="footer">
-  <div class="screen-header audio-container"><audio #audioPlayer autoplay (timeupdate)="updateTime()" (loadedmetadata)="initAudio()">
+  <div class="screen-header audio-container"><audio #audioPlayer (timeupdate)="updateTime()" (loadedmetadata)="initAudio()">
     <source src="assets/audio/Stay-slowed-reverb.mp3" type="audio/mpeg">
   </audio>
 
