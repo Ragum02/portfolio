@@ -1,12 +1,13 @@
-import {Component, ElementRef, QueryList, ViewChild, ViewChildren, OnInit } from '@angular/core';
+import {Component, ElementRef , ViewChild} from '@angular/core';
 import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
 import { BouncingIconsComponent } from "./core/layout/boucingicons/bouncingicons.component";
+import { BackgroundComponent } from "./core/layout/background/background.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterLinkActive, RouterLink, RouterOutlet, CommonModule, BouncingIconsComponent],
+  imports: [RouterLinkActive, RouterLink, RouterOutlet, CommonModule, BouncingIconsComponent, BackgroundComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
@@ -41,51 +42,11 @@ import { BouncingIconsComponent } from "./core/layout/boucingicons/bouncingicons
 })
 
 
-export class AppComponent implements OnInit  {
+export class AppComponent {
 prepareRoute(outlet: RouterOutlet) {
   return outlet?.activatedRouteData?.['animation'];
 }
   title = "Accueil";
-
-  async ngOnInit() {
-    setTimeout(() => {
-    this.generateStars(30);
-  }, 0);
-  }
-  generateStars(count: number): void {
-    const container = document.querySelector('.space-background');
-    if (!container) return;
-
-    for (let i = 0; i < count; i++) {
-      this.createStar(container);
-    }
-  }
-
-  createStar(container: Element): void {
-    const star = document.createElement('div');
-    const size = Math.random() * 0.5 + 1.0;
-    const x = Math.random() * 100;
-    const y = Math.random() * 100;
-    const duration = 10000 + Math.random() * 4000;
-
-    star.className = 'star';
-    Object.assign(star.style, {
-      left: `${x}%`,
-      top: `${y}%`,
-      width: `${size}px`,
-      height: `${size}px`,
-      animationDuration: `${duration}ms`,
-    });
-
-    // Supprimer après l'animation et recréer une autre étoile
-    setTimeout(() => {
-      container.removeChild(star);
-      this.createStar(container);
-    }, duration);
-
-    container.appendChild(star);
-
-  }
 
 
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;

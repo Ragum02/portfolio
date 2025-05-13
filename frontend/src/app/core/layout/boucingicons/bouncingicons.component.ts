@@ -28,13 +28,12 @@ export class BouncingIconsComponent {
     this.icons$ = this.apiService.getAllTags();
     this.icons$.subscribe(data => {
     this.icons = data;
+
+      //utilisation de detect : ChangeDetectorRef pour demander a Angular de se "reload" aprés un changement effectué (en resumé)
     this.detect.detectChanges();
     this.initBouncingIcons();
     })
   }
-
-
-
 
 initBouncingIcons(): void {
   const screen = this.screenRef.nativeElement;

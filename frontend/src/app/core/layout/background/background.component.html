@@ -1,0 +1,38 @@
+<div class="background">
+<div class="space-background">
+  <div *ngFor="let star of stars" [@starAnimation]>
+    <div
+      class="star"
+      [ngStyle]="{
+        left: star.x + '%',
+        top: star.y + '%',
+        width: star.size + 'px',
+        height: star.size + 'px',
+        animationDuration: star.duration + 'ms'
+      }">
+    </div>
+  </div>
+</div>
+<div class="grid-background">
+</div>
+<div class="planet-container">
+  <div class="planet planet-1"></div>
+  <div class="planet planet-2"></div>
+  <div class="planet planet-3"></div>
+  <div class="bright-star bright-star-1"></div>
+  <div class="bright-star bright-star-2"></div>
+  <div class="bright-star bright-star-3"></div>
+  <div class="bright-star bright-star-4"></div>
+  <div class="bright-star bright-star-5"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+</div>
+<div class="scanline-wrapper">
+  <div class="scanline"></div>
+</div>
+<div class="relay-container">
+  <div class="relay-blue-light"></div>
+  <img src="assets/relay.png" alt="Relai cosmodésique" class="relay-image" />
+</div>
+</div>
