@@ -2,19 +2,11 @@ import {Component, ElementRef, QueryList, ViewChild, ViewChildren, OnInit } from
 import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
-
-
-interface BouncingIcon {
-  el: HTMLElement;
-  x: number;
-  y: number;
-  dx: number;
-  dy: number;
-}
+import { BouncingIconsComponent } from "./core/layout/boucingicons/bouncingicons.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterLinkActive, RouterLink , RouterOutlet, CommonModule],
+  imports: [RouterLinkActive, RouterLink, RouterOutlet, CommonModule, BouncingIconsComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
@@ -54,21 +46,10 @@ prepareRoute(outlet: RouterOutlet) {
   return outlet?.activatedRouteData?.['animation'];
 }
   title = "Accueil";
-  icons: any[] = [];
-
-  @ViewChild('iconScreen', { static: true }) screenRef!: ElementRef<HTMLDivElement>;
-  @ViewChildren('iconDiv') iconElements!: QueryList<ElementRef<HTMLDivElement>>;
-
-  private bouncingIcons: BouncingIcon[] = [];
-
 
   async ngOnInit() {
-    const response = await fetch('http://localhost:8000/api/tags')
-
-    this.icons = Object.values(await response.json());
     setTimeout(() => {
     this.generateStars(30);
-    this.initBouncingIcons();
   }, 0);
   }
   generateStars(count: number): void {
@@ -106,96 +87,6 @@ prepareRoute(outlet: RouterOutlet) {
 
   }
 
-initBouncingIcons(): void {
-  const screen = this.screenRef.nativeElement;
-
-  this.iconElements.forEach((elRef, index) => {
-    const el = elRef.nativeElement;
-    const iconData = this.icons[index];
-    const x = Math.random() * (screen.clientWidth - 32);
-    const y = Math.random() * (screen.clientHeight - 32);
-    const dx = (Math.random() * 0.02 + 0.075) * (Math.random() < 0.5 ? -1 : 1);
-    const dy = (Math.random() * 0.02 + 0.075) * (Math.random() < 0.5 ? -1 : 1);
-
-    const icon: BouncingIcon = { el, x, y, dx, dy };
-    el.style.left = `${x}px`;
-    el.style.top = `${y}px`;
-
-    if (iconData && iconData.icon) {
-
-      el.style.backgroundImage = `url(${iconData.icon})`;
-      el.style.backgroundSize = 'contain';
-      el.style.backgroundPosition = 'center';
-      el.style.backgroundRepeat = 'no-repeat';
-    }
-
-    this.bouncingIcons.push(icon);
-  });
-
-  this.animate();
-}
-
-  private animate(): void {
-    const screen = this.screenRef.nativeElement;
-
-    this.bouncingIcons.forEach(icon => {
-      icon.x += icon.dx;
-      icon.y += icon.dy;
-
-      // Collision avec les bords de l'écran
-      const maxX = screen.clientWidth - 32;
-      const maxY = screen.clientHeight - 32;
-      if (icon.x <= 0) {
-        icon.x = 0;  // Positionner l'icône directement au bord gauche
-        icon.dx *= -1; // Inverser la direction de la vitesse horizontale
-      } else if (icon.x >= maxX) {
-        icon.x = maxX;  // Positionner l'icône directement au bord droit
-        icon.dx *= -1;  // Inverser la direction de la vitesse horizontale
-      }
-
-      if (icon.y <= 0) {
-        icon.y = 0;  // Positionner l'icône directement au bord supérieur
-        icon.dy *= -1; // Inverser la direction de la vitesse verticale
-      } else if (icon.y >= maxY) {
-        icon.y = maxY;  // Positionner l'icône directement au bord inférieur
-        icon.dy *= -1;  // Inverser la direction de la vitesse verticale
-      }
-
-      // Collision entre les icônes
-      this.bouncingIcons.forEach(otherIcon => {
-        if (icon === otherIcon) return;
-
-        const distance = Math.sqrt(Math.pow(icon.x - otherIcon.x, 2) + Math.pow(icon.y - otherIcon.y, 2));
-        const collisionDistance = 32; // distance minimale pour détecter la collision
-        if (distance < collisionDistance) {
-          // Inverser les directions des vitesses lors de la collision
-          const tempDx = icon.dx;
-          const tempDy = icon.dy;
-          icon.dx = otherIcon.dx;
-          icon.dy = otherIcon.dy;
-          otherIcon.dx = tempDx;
-          otherIcon.dy = tempDy;
-
-          const overlap = collisionDistance - distance;
-          const angle = Math.atan2(icon.y - otherIcon.y, icon.x - otherIcon.x);
-          const offsetX = Math.cos(angle) * overlap / 2;
-          const offsetY = Math.sin(angle) * overlap / 2;
-
-          icon.x += offsetX;
-          icon.y += offsetY;
-          otherIcon.x -= offsetX;
-          otherIcon.y -= offsetY;
-
-        }
-      });
-
-      // Mettre à jour la position de l'icône
-      icon.el.style.left = `${icon.x}px`;
-      icon.el.style.top = `${icon.y}px`;
-    });
-
-    requestAnimationFrame(() => this.animate());
-  }
 
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
 

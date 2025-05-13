@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../services/api.service';
 import { IProject } from '../../../@types/project';
@@ -31,9 +31,9 @@ export class ProjectsComponent {
 
   projects$: Observable<IProject[]>;
   projects: IProject[] = [];
-  private apiService = inject(ApiService);
 
-  constructor() {
+
+  constructor(private apiService : ApiService) {
     this.projects$ = this.apiService.getAllProjects();
     this.projects$.subscribe(data => {
       this.projects = data;

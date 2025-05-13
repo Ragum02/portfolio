@@ -1,0 +1,33 @@
+.main-container-footer{
+  align-self:flex-start;
+  position:fixed;
+  bottom:5%;
+  left:5%;
+.icons-screen{
+  background:transparent;
+  box-shadow: inset 0 0 50px #535353d5;
+  border:1px solid rgba(255, 255, 255, 0.308);
+  width:15em;
+  height:15em;
+  align-self:flex-start;
+}
+}
+
+.icons{
+  background: white;
+  width:32px;
+  height:32px;
+  border-radius: 50%;
+  position: absolute;
+  transition: transform 0.2s;
+  animation: 45s rotation infinite forwards alternate;
+}
+
+@keyframes rotation {
+  0%{
+    transform:rotate(0)
+  }
+  100%{
+    transform:rotate(360deg)
+  }
+}

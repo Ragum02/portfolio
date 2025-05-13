@@ -72,16 +72,7 @@
 <main [@routeAnimations]="prepareRoute(outlet)">
       <router-outlet #outlet="outlet"></router-outlet>
 </main>
-<footer class="main-container-footer">
-  <div class="icons-screen" #iconScreen>
-     <div
-    *ngFor="let icon of icons; let i = index"
-    #iconDiv
-    class="icons"
-    [attr.data-index]="i"
-  ></div>
-  </div>
-</footer>
+<app-boucing-icons></app-boucing-icons>
 </div>
 
 <footer class="footer">

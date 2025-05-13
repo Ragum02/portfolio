@@ -1,0 +1,10 @@
+<footer class="main-container-footer">
+  <div class="icons-screen" #iconScreen>
+     <div
+    *ngFor="let icon of icons; let i = index"
+    #iconDiv
+    class="icons"
+    [attr.data-index]="i"
+  ></div>
+  </div>
+</footer>
