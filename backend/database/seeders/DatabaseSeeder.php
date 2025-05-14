@@ -40,8 +40,8 @@ $tags = [
     ['name' => 'MongoDB', 'icon' => 'http://localhost:8000/img/icons/mongodb.svg'],
     ['name' => 'Git', 'icon' => 'http://localhost:8000/img/icons/git.svg'],
     ['name' => 'GitHub', 'icon' => 'http://localhost:8000/img/icons/github.svg'],
-    ['name' => 'GraphQL', 'icon' => 'http://localhost:8000/img/icons/graphql.svg'],
-    ['name' => 'Figma', 'icon' => 'http://localhost:8000/img/icons/figma.svg'],
+    //['name' => 'GraphQL', 'icon' => 'http://localhost:8000/img/icons/graphql.svg'],
+    //['name' => 'Figma', 'icon' => 'http://localhost:8000/img/icons/figma.svg'],
     ['name' => 'NestJS', 'icon' => 'http://localhost:8000/img/icons/nestjs.svg'],
     ['name' => 'NextJS', 'icon' => 'http://localhost:8000/img/icons/nextjs.svg'],
     ['name' => 'ViteJS', 'icon' => 'http://localhost:8000/img/icons/vitejs.svg'],
@@ -63,8 +63,7 @@ $projects = [
                         [
                 'name' => 'Challenge conception',
 
-                'content' => '<! - Les challenges ont été nettoyés pour enlever les enoncer - !>
-                Un challenge d\'entrainement a la conception en total autonomie.
+                'content' => 'Un challenge d\'entrainement a la conception en total autonomie.
                 ',
                 'image' => 'http://localhost:8000/img/screenshots/training-conception.png',
                 'url' => 'https://github.com/Ragum02/training-conception',
@@ -79,8 +78,7 @@ $projects = [
             ],
                         [
                 'name' => 'Okanban',
-                'content' => '<! - Les challenges ont été nettoyés pour enlever les enoncer - !>
-                Challenge bonus donné par un formateur pour me permettre de faire mes premiers pas sur Nest.JS, TypeScript et TypeORM , pour la réalisation d\une simple API
+                'content' => 'Challenge bonus donné par un formateur pour me permettre de faire mes premiers pas sur Nest.JS, TypeScript et TypeORM , pour la réalisation d\une simple API
                 ',
                 'image' => 'http://localhost:8000/img/screenshots/okanban-nest.png',
                 'url' => 'https://github.com/Ragum02/okanban-nest/tree/nest-typeorm',
@@ -88,40 +86,35 @@ $projects = [
             ],
             [
                 'name' => 'Pokedex',
-                'content' => '<! - Les challenges ont été nettoyés pour enlever les enoncer - !>
-                Un challenge de formation, pour la création d\'une API, cela ma aussi permis de m\'initier a swagger et aux observers en total autonomie.',
+                'content' => 'Un challenge de formation, pour la création d\'une API, cela ma aussi permis de m\'initier a swagger et aux observers en total autonomie.',
                 'image' => 'http://localhost:8000/img/screenshots/pokedexjs.png',
                 'url' => 'https://github.com/Ragum02/pokedexJS',
                 'tags' => ['JavaScript', 'HTML5', 'Css3'],
             ],
             [
                 'name' => 'Social Network Challenge',
-                'content' => '<! - Les challenges ont été nettoyés pour enlever les enoncer - !>
-                Un challenge de formation, pour permettre de m\'entrainer aux micro services, a docker et a l\'auth.',
+                'content' => 'Un challenge de formation, pour permettre de m\'entrainer aux micro services, a docker et a l\'auth.',
                 'image' => 'http://localhost:8000/img/screenshots/challenge-social-network.png',
                 'url' => 'https://github.com/Ragum02/challenge-social-network',
                 'tags' => ['JavaScript', 'HTML5', 'Css3'],
             ],
             [
                 'name' => 'Auth/React Challenge',
-                'content' => '<! - Les challenges ont été nettoyés pour enlever les enoncer - !>
-                Un challenge de formation, pour permettre de m\'entrainer avec React, a la gestion de l\'auth.',
+                'content' => 'Un challenge de formation, pour permettre de m\'entrainer avec React, a la gestion de l\'auth.',
                 'image' => 'http://localhost:8000/img/screenshots/challenge-auth-react.png',
                 'url' => 'https://github.com/Ragum02/challenge-auth-react',
                 'tags' => ['JavaScript', 'HTML5', 'Css3'],
             ],
             [
                 'name' => 'Triple Triad Deck Builder',
-                'content' => '<! - Les challenges ont été nettoyés pour enlever les enoncer - !>
-                Un challenge de formation, dans lequel j\'ai crée un deck builder pour le Triple Triad de Final Fantasy 8.',
+                'content' => 'Un challenge de formation, dans lequel j\'ai crée un deck builder pour le Triple Triad de Final Fantasy 8.',
                 'image' => 'http://localhost:8000/img/screenshots/challenge-auth-react.png',
                 'url' => 'https://github.com/Ragum02/challenge-auth-react',
                 'tags' => ['JavaScript', 'HTML5', 'Css3'],
             ],
             [
                 'name' => 'Coffee Challenge',
-                'content' => '<! - Les challenges ont été nettoyés pour enlever les enoncer - !>
-                Un challenge de formation, pour apprendre les fondamentaux de l\'architecture MVC.',
+                'content' => 'Un challenge de formation, pour apprendre les fondamentaux de l\'architecture MVC.',
                 'image' => 'http://localhost:8000/img/screenshots/coffee.png',
                 'url' => 'https://github.com/Ragum02/ocoffee',
                 'tags' => ['JavaScript', 'HTML5', 'Css3', 'PostgreSQL'],
