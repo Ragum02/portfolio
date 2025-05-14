@@ -45,17 +45,20 @@ export class BackgroundComponent implements OnInit{
   }
 
   createStar(): any {
-    const size = Math.random() * 0.25 + 1.0;
+    const size = Math.random() * 0.75 + 3;
     const x = Math.random() * 100;
     const y = Math.random() * 100;
-    const duration = 10000 + Math.random() * 7000;
+    const duration = 10000 + Math.random() * 5000;
+    const delay = Math.random() * 12;
 
     return {
-      id: Math.random().toString(36).substring(7),
+      //id uniquement pour debug
+      //id: Math.random().toString(36).substring(7),
       x,
       y,
       size,
       duration,
+      delay
     };
   }
 }

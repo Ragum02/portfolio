@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ManageComponent {
 
-  user = '';
+  user = 'benjamin';
 
   constructor(private router: Router) {
     if (this.user !== 'benjamin') {

@@ -67,5 +67,6 @@ export class ProjectsComponent {
     if( event.key === 'ArrowLeft'){
       this.previousImage();
     }
-    }
+  }
+
 }

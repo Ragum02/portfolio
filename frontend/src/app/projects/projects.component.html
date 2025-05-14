@@ -22,7 +22,9 @@
         <a [href]="project.url" target="_blank" rel="noopener noreferrer">Lien vers > <span class="glitch-effect">{{project.name}}</span></a>
 
     </article>
-    <div class="carousel-indicators-container">
+    <div
+    *ngIf="projects.length > 1"
+    class="carousel-indicators-container">
       <span class="arrow left-arrow"
       tabindex="0"
       (click)="previousImage()"
