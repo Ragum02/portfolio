@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  backendUrl: 'https://localhost:8000/api',
-    imageBaseUrl: 'https://localhost:8000'
+  backendUrl: 'https://benjamin-souiket.fr/api',
+  imageBaseUrl: 'https://benjamin-souiket.fr/img'
 };

@@ -1,4 +1,4 @@
-name: Deploy to VPS
+name: Deploy Laravel + Angular on VPS
 
 on:
   push:
@@ -8,32 +8,21 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up SSH key
-        uses: webfactory/ssh-agent@v0.5.3
+      - name: Deploy on VPS via SSH
+        uses: appleboy/ssh-action@v0.1.9
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Build Docker images locally (optional)
-        run: |
-          docker compose -f docker-compose.yml build
-
-      - name: Deploy to VPS and renew certbot
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "\
-            cd /var/www/portfolio && \
-            sudo git fetch origin && \
-            sudo git reset --hard origin/main && \
-            sudo git pull origin main && \
-            sudo docker-compose -f docker-compose.yml up --build -d && \
-            sudo docker run --rm \
-              -v /var/www/portfolio/nginx/certbot-conf/etc:/etc/letsencrypt \
-              -v /var/www/portfolio/nginx/certbot-conf/lib:/var/lib/letsencrypt \
-              -v /var/www/portfolio/frontend/dist:/usr/share/nginx/html \
-              certbot/certbot renew --quiet --deploy-hook \"sudo docker-compose -f docker-compose.yml restart frontend\""
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/portfolio || exit 1
+            git fetch origin
+            git reset --hard origin/main
+            docker-compose down
+            docker-compose up -d --build
+            docker system prune -f
