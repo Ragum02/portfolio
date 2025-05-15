@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../services/api.service';
 import { IProject } from '../../../@types/project';
-
+import { getImageUrl } from '../utils/image-url.util';
 
 @Component({
   selector: 'app-projects',
@@ -29,6 +29,7 @@ export class ProjectsComponent {
   //   {name: "project 5" , content:"Lorem ipsum tout ça tout ça", image: "https://images.unsplash.com/photo-1735859423481-775da815e631?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", url: "https://www.google.com"},
   // ]
 
+  fullImageUrl = getImageUrl
   projects$: Observable<IProject[]>;
   projects: IProject[] = [];
 

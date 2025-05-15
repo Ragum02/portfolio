@@ -5,7 +5,7 @@
     <article *ngFor="let project of projects; let i=index" [ngClass]="{'article-active' : selectedIndex === i}" class="fade">
       <figure>
 
-      <img [src]="project.image" alt="Image du projet {{ i + 1 }}" />
+      <img [src]="fullImageUrl(project.image)" alt="Image du projet {{ i + 1 }}" />
       <figcaption>
         {{project.name}}</figcaption>
         </figure>
@@ -13,7 +13,7 @@
         <div
            class="tag"
            *ngFor="let tag of project.tags"
-           [style.background-image]="'url(' + tag.icon + ')'">
+           [style.background-image]="'url(' + fullImageUrl(project.image) + ')'">
         </div>
         </div>
         <div class="article-text">

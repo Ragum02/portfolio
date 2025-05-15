@@ -1,22 +1,24 @@
 FROM php:8.4-fpm
 
 RUN apt-get update && apt-get install -y \
-    sqlite3 \
-    libsqlite3-dev \
-    unzip \
-    git \
-    curl \
-    && curl -sS https://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer
+    git zip unzip sqlite3 libsqlite3-dev libzip-dev nginx \
+    && docker-php-ext-install pdo pdo_sqlite zip
 
-COPY . /var/www
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
-RUN composer install
+COPY . .
 
-EXPOSE 8000
+RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-RUN chown -R www-data:www-data /var/www && chmod -R 755 /var/www
+RUN php artisan storage:link
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+RUN chown -R www-data:www-data /var/www/html/storage \
+    && chmod -R 775 /var/www/html/storage
+
+COPY ./nginx.conf /etc/nginx/sites-available/default
+
+EXPOSE 80
+
+CMD service nginx start && php-fpm

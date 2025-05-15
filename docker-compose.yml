@@ -1,34 +1,41 @@
 services:
   backend:
-    build:
-      context: ./backend
+    build: ./backend
     container_name: backend
     volumes:
-      - ./backend:/var/www
+      - ./backend:/var/www/html
+      - ./backend/storage:/var/www/html/storage
     expose:
-      - "8000"
-    ports:
-      - "8000:8000"
-    depends_on:
-      - nginx
-
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./backend:/var/www
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on: []
+      - "80"
+    networks:
+      - app-network
 
   frontend:
-    build:
-      context: ./frontend
+    build: ./frontend
     container_name: frontend
     volumes:
-      - ./frontend:/app
-      - /app/node_modules
+      - ./frontend/dist:/usr/share/nginx/html:ro
+      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
-      - "4200:4200"
-    command: npm start
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./nginx/certbot-conf/etc:/etc/letsencrypt
+      - ./nginx/certbot-conf/lib:/var/lib/letsencrypt
+      - ./frontend/dist:/usr/share/nginx/html
+    entrypoint: /bin/sh -c "trap exit TERM; while :; do sleep 12h & wait $${!}; certbot renew --webroot -w /usr/share/nginx/html; done;"
+    depends_on:
+      - frontend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

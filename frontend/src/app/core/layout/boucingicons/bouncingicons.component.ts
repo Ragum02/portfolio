@@ -4,7 +4,7 @@ import { BouncingIcon } from '../../../../../@types/bouncingicon';
 import { ITag } from '../../../../../@types/tag';
 import { ApiService } from '../../../services/api.service';
 import { Observable } from 'rxjs';
-
+import { getImageUrl } from '../../../utils/image-url.util';
 
 @Component({
   selector: 'app-boucing-icons',
@@ -51,7 +51,7 @@ initBouncingIcons(): void {
     el.style.top = `${y}px`;
 
     if (iconData && iconData.icon) {
-      el.style.backgroundImage = `url(${iconData.icon})`;
+      el.style.backgroundImage = `url(${getImageUrl(iconData.icon)})`;
       el.style.backgroundSize = 'contain';
       el.style.backgroundPosition = 'center';
       el.style.backgroundRepeat = 'no-repeat';

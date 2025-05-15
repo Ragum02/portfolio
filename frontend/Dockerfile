@@ -1,14 +1,11 @@
-FROM node:22
-
+# Build
+FROM node:22 as builder
 WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install -g @angular/cli@19 && npm install
-
 COPY . .
+RUN npm install
+RUN npm run build
 
-EXPOSE 4200
-
-CMD ["npm", "start"]
-
+# Serve with nginx
+FROM nginx:alpine
+COPY --from=builder /app/dist/frontend/browser /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
