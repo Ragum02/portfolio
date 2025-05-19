@@ -4,7 +4,7 @@ services:
       context: ./backend
     volumes:
       #volumes pour la db
-      - ./database:/var/www/html/database
+      - ./database/database.sqlite:/var/www/html/database/database.sqlite
     ports:
       - "9000:9000"
     networks:
