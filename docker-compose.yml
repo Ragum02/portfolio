@@ -3,6 +3,7 @@ services:
     build:
       context: ./backend
     volumes:
+      #volumes pour la db
       - ./database:/var/www/html/database
     ports:
       - "9000:9000"
