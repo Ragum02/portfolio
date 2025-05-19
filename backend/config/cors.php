@@ -1,5 +1,20 @@
 <?php
 
+$allowedOrigins = [];
+
+if (env('APP_ENV') === 'local') {
+    $allowedOrigins = [
+        'http://localhost',
+        'http://127.0.0.1:4200',
+        '*',
+    ];
+} else {
+    $allowedOrigins = [
+        'https://www.benjamin-souiket.fr',
+        'https://benjamin-souiket.fr',
+    ];
+}
+
 return [
 
     /*
@@ -19,7 +34,7 @@ return [
 
     'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 
-    'allowed_origins' => ['https://www.benjamin-souiket.fr', 'https://benjamin-souiket.fr'],
+    'allowed_origins' => $allowedOrigins,
 
     'allowed_origins_patterns' => [],
 
