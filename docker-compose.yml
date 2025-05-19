@@ -2,6 +2,8 @@ services:
   backend:
     build:
       context: ./backend
+    volumes:
+      - ./database:/var/www/html/database
     ports:
       - "9000:9000"
     networks:

@@ -21,8 +21,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/portfolio || exit 1
-            git fetch origin
-            git reset --hard origin/main
+            git pull
             docker-compose down
             docker-compose up -d --build
             docker system prune -f
