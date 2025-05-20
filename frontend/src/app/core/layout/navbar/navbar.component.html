@@ -1,0 +1,29 @@
+ <nav class="space-nav">
+    <a
+    class="space-menu-item"
+    [routerLink]="['/']"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <span class="dot dot--green" routerLinkActive="dot--active" [routerLinkActiveOptions]="{ exact: true }"></span>
+    <span class="link-text">Accueil</span>
+  </a>
+
+  <a
+    class="space-menu-item"
+    [routerLink]="['/projets']"
+    routerLinkActive="active"
+  >
+    <span class="dot dot--yellow" routerLinkActive="dot--active"></span>
+    <span class="link-text">Projets</span>
+  </a>
+
+  <a
+    class="space-menu-item"
+    [routerLink]="['/contact']"
+    routerLinkActive="active"
+  >
+    <span class="dot dot--orange" routerLinkActive="dot--active"></span>
+    <span class="link-text">Contact</span>
+  </a>
+  </nav>

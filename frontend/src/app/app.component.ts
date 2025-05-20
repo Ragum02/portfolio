@@ -1,15 +1,15 @@
-import {Component, ElementRef , ViewChild} from '@angular/core';
-import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
 import { BouncingIconsComponent } from "./core/layout/boucingicons/bouncingicons.component";
 import { BackgroundComponent } from "./core/layout/background/background.component";
 import { HeaderComponent } from "./core/layout/header/header.component";
 import { FooterComponent } from "./core/layout/footer/footer.component";
-
+import { NavbarComponent } from './core/layout/navbar/navbar.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterLinkActive, RouterLink, RouterOutlet, CommonModule, BouncingIconsComponent, BackgroundComponent, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, CommonModule, BouncingIconsComponent, BackgroundComponent, HeaderComponent, FooterComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
@@ -49,5 +49,4 @@ prepareRoute(outlet: RouterOutlet) {
   return outlet?.activatedRouteData?.['animation'];
 }
   title = "Accueil";
-
 }
