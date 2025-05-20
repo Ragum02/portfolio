@@ -107,7 +107,8 @@ body{
 
 h1{
   text-shadow: rgb(234, 0, 255) 3px 1px 3px;
-  text-decoration: underline dashed;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
   text-underline-offset: 8px;
 }
 

@@ -13,7 +13,7 @@
         display: none;
       }
     }
-       @media (min-width: (responsive.$mobile + 1px)) and (max-width: responsive.$desktop + 416) {
+       @media (min-width: (responsive.$mobile + 1px)) and (max-width: (responsive.$desktop + 416)) {
    margin-left:10em;
   }
 }
