@@ -1,3 +1,5 @@
+@use '../../../../_responsive' as responsive;
+
 /* Fond étoilé */
 .space-background {
   position:fixed;
@@ -24,6 +26,13 @@
   z-index: -2;
   animation: displayGrid 2s linear 1,
   scrollingGrid 60s linear infinite forwards;
+
+   @media (max-width: responsive.$tablet) {
+    background-size: 20px 20px;
+  }
+  @media (max-width: responsive.$mobile) {
+    background-size: 10px 10px;
+  }
 }
 
 @keyframes displayGrid {
@@ -66,6 +75,15 @@ background-position: 10px 0 0 0;
       0 0 30px rgb(0, 0, 0, 0.8),
       inset -10px -10px 60px rgba(0, 0, 0, 0.6);
 
+    @media (max-width: responsive.$tablet) {
+      margin: 15px;
+      animation-duration: 60s;
+    }
+   @media (max-width: responsive.$mobile) {
+      margin: 10px;
+      animation-duration: 90s;
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -98,24 +116,28 @@ background-position: 10px 0 0 0;
   .planet-1 {
     width: 70px;
     height: 70px;
-    top:500px;
-    left:100px;
+    top:60%;
+    left:10%;
     background-image: url('/assets/neptune.jpg');
+
   }
 
   .planet-2 {
     width: 90px;
     height: 90px;
-    left:1000px;
+    left:60%;
     background-image: url('/assets/jupiter.jpg');
+
+
   }
 
   .planet-3 {
     width: 70px;
     height: 70px;
     top:60%;
-    left:80%;
+    left:75%;
     background-image: url('/assets/mars.jpg');
+
   }
 }
 
@@ -132,6 +154,10 @@ background-position: 10px 0 0 0;
   twinkle 3s infinite ease-in-out;
   filter: drop-shadow(0 0 2px white);
   z-index: -1;
+
+  @media (max-width: responsive.$mobile) {
+    filter: none;
+  }
 }
 
 @keyframes fadeInOut {
@@ -153,6 +179,17 @@ background-position: 10px 0 0 0;
   &.bright-star-1 { top: 10%; left: 30%; animation-delay: 0s; }
   &.bright-star-2 { top: 20%; right: 20%; animation-delay: 0.5s; }
   &.bright-star-3 { top: 35%; left: 60%; animation-delay: 1s; }
+
+    @media (max-width: responsive.$tablet) {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 5px white;
+  }
+  @media (max-width: responsive.$mobile) {
+    width: 2px;
+    height: 2px;
+    box-shadow: none;
+  }
 }
 
 @keyframes twinkle {
@@ -172,6 +209,13 @@ background-position: 10px 0 0 0;
     transform: rotate(210deg);
     opacity: 0;
     animation: shoot 25s linear infinite;
+
+  @media (max-width: responsive.$tablet) {
+    height: 30px;
+  }
+  @media (max-width: responsive.$mobile) {
+    display: none;
+  }
   }
 
 @keyframes shoot {
@@ -191,6 +235,11 @@ background-position: 10px 0 0 0;
   opacity: 0.5;
   pointer-events: none;
   animation: scanline 12s linear infinite;
+
+  @media (max-width: responsive.$mobile) {
+    height: 2px;
+    opacity: 0.3;
+  }
 }
 
 @keyframes scanline {
@@ -211,6 +260,15 @@ background-position: 10px 0 0 0;
   opacity: 0.8;
   animation: relayFloat 600s linear infinite;
   background:transparent;
+
+  @media (max-width: responsive.$tablet) {
+    width: 60px;
+    top: 60%;
+    left: -20px;
+  }
+  @media (max-width: responsive.$mobile) {
+    display: none;
+  }
 }
 .relay-blue-light{
   transform: translate(14%, 118%);
@@ -219,6 +277,11 @@ background-position: 10px 0 0 0;
   border-radius: 50%;
   width: 50px;
   height: 50px;
+
+  @media (max-width: responsive.$tablet) {
+    width: 30px;
+    height: 30px;
+  }
 }
 .relay-image {
   width: 100%;

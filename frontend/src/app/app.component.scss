@@ -1,4 +1,7 @@
+@use '../_responsive' as responsive;
+
 /************************ Div qui affiche mon contenu ***********************/
+
 
 @keyframes softGlitch {
   0%, 100% {
@@ -60,6 +63,25 @@
     height:100%;
     width:80%;
   }
+
+ @media (max-width: responsive.$desktop) {
+    width: 80vw;
+    height: 70vh;
+  }
+
+  @media (max-width: responsive.$tablet) {
+    width: 90vw;
+    height: 60vh;
+    border-width: 1.5px;
+  }
+
+  @media (max-width: responsive.$mobile) {
+    width: 80vw;
+    height: 70vh;
+    border-width: 1px;
+    top: 10%;
+  }
+
 }
 
 @keyframes showContainer{

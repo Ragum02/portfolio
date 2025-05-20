@@ -1,6 +1,9 @@
 <div class="projects-container">
   <h1 class="projects-title">Voici mes projets: </h1>
-  <div class="carousel">
+  <div class="carousel"
+     (touchstart)="onTouchStart($event)"
+     (touchmove)="onTouchMove($event)"
+     (touchend)="onTouchEnd()">
 
     <article *ngFor="let project of projects; let i=index" [ngClass]="{'article-active' : selectedIndex === i}" class="fade">
       <figure>

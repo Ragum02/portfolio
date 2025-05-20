@@ -1,15 +1,26 @@
 @use '../core/layout/header/header.component.scss';
+@use '../../_responsive' as responsive;
+
 .home-container{
   width:100%;
   height:80%;
   overflow:hidden;
   h1{
     margin:2em 0;
+
+       @media (max-width:  responsive.$mobile){
+        font-size: medium;
+        margin-top: 10em;
+        text-align: center;
+    }
   }
   display: flex;
   flex-direction: column;
   align-items: center;
 
+         @media (max-width:  responsive.$mobile){
+          height: 95%;
+    }
 
   .home-container-text{
     strong{
@@ -29,7 +40,12 @@
     flex-direction: column;
     gap:2em;
 
-
+       @media (max-width:  responsive.$mobile){
+         width: 95%;
+         margin:0 auto;
+        padding:10px;
+        text-align: center;
+    }
   }
 }
 

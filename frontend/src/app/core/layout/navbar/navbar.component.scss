@@ -1,3 +1,5 @@
+@use '../../../../_responsive' as responsive;
+
 .space-nav {
   position: fixed;
   display: flex;
@@ -19,6 +21,18 @@
       transition: 0.45s ease-in-out;
     }
   }
+
+  @media (max-width:  responsive.$mobile) {
+    z-index: 2;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
+    top:0%;
+    width: 100%;
+    left:50%;
+    height: 10%;
+    padding:0;
+    }
 }
 
 .space-menu-item {
@@ -42,11 +56,20 @@
   .link-text{
     transform:scale(0);
     font-size:0;
-    transition: 0.45s ease-in-out;}
+    transition: 0.45s ease-in-out;
+     @media (max-width:  responsive.$mobile){
+        transform: scale(1);
+        font-size: 0.8em;
+    }
+  }
+
   &:hover {
     color: #00ffff;
     text-shadow: 0 0 8px #00ffff;
-
+  }
+  @media (max-width:  responsive.$mobile) {
+    flex-direction: column;
+    width: 25%;
   }
 }
 .dot--green{

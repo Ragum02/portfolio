@@ -1,8 +1,23 @@
+@use '../../../../_responsive' as responsive;
+
 .main-container-footer{
   align-self:flex-start;
   position:fixed;
   bottom:5%;
   left:5%;
+
+
+  @media (max-width: responsive.$tablet) {
+    bottom: 3%;
+    left: 3%;
+  }
+
+  @media (max-width: responsive.$mobile) {
+    bottom: 2%;
+    left: 2%;
+    width: 80vw;
+  }
+
 .icons-screen{
   background:transparent;
   box-shadow: inset 0 0 50px #535353d5;
@@ -10,6 +25,15 @@
   width:15em;
   height:15em;
   align-self:flex-start;
+
+  @media (max-width: responsive.$tablet) {
+      width: 12em;
+      height: 12em;
+    }
+
+  @media (max-width: responsive.$mobile) {
+    display:none;
+    }
 }
 }
 
@@ -21,6 +45,15 @@
   position: absolute;
   transition: transform 0.2s;
   animation: 45s rotation infinite forwards alternate;
+
+  @media (max-width: responsive.$tablet) {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (max-width: responsive.$mobile) {
+    display:none;
+  }
 }
 
 @keyframes rotation {

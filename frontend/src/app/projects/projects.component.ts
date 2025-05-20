@@ -70,4 +70,31 @@ export class ProjectsComponent {
     }
   }
 
+touchStartX: number = 0;
+touchEndX: number = 0;
+swipeThreshold: number = 50;
+
+onTouchStart(event: TouchEvent) {
+  this.touchStartX = event.changedTouches[0].screenX;
+}
+
+onTouchMove(event: TouchEvent) {
+  this.touchEndX = event.changedTouches[0].screenX;
+}
+
+onTouchEnd() {
+  const swipeDistance = this.touchEndX - this.touchStartX;
+
+  if (Math.abs(swipeDistance) > this.swipeThreshold) {
+    if (swipeDistance < 0) {
+      this.nextImage(); // Swipe gauche
+    } else {
+      this.previousImage(); // Swipe droite
+    }
+  }
+
+  // Reset
+  this.touchStartX = 0;
+  this.touchEndX = 0;
+}
 }
