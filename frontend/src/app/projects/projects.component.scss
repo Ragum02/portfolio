@@ -165,36 +165,6 @@
     }
   }
 
-  @media (max-width:  responsive.$tablet) {
-    position: relative;
-    left: 0;
-    width: 95%;
-    margin: 0 auto;
-    height: auto;
-
-    .carousel {
-      width: 100%;
-      height: auto;
-
-      article {
-        width: 100%;
-      }
-
-      .article-active {
-        height: auto;
-
-        img {
-          max-height: 200px;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-    }
-
-    .carousel-indicators-container {
-      padding: 0.5rem 0;
-    }
-  }
 
   @media (max-width:  responsive.$mobile) {
     width: 100%;

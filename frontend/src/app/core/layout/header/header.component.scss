@@ -28,11 +28,6 @@
       position: relative;
     }
 
-    @media (max-width: responsive.$tablet) {
-      gap: 40em;
-      padding: 0 1em;
-    }
-
     @media (max-width: responsive.$mobile) {
       gap: 20em;
       padding: 0 0.5em;
@@ -41,9 +36,6 @@
         font-size: 0.7em;
       }
     }
-  }
-    @media (max-width: responsive.$tablet) {
-    height: 4vh;
   }
 
   @media (max-width: responsive.$mobile) {

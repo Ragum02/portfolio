@@ -69,12 +69,6 @@
     height: 70vh;
   }
 
-  @media (max-width: responsive.$tablet) {
-    width: 90vw;
-    height: 60vh;
-    border-width: 1.5px;
-  }
-
   @media (max-width: responsive.$mobile) {
     width: 80vw;
     height: 70vh;
