@@ -27,9 +27,6 @@
   animation: displayGrid 2s linear 1,
   scrollingGrid 60s linear infinite forwards;
 
-   @media (max-width: responsive.$tablet) {
-    background-size: 20px 20px;
-  }
   @media (max-width: responsive.$mobile) {
     background-size: 10px 10px;
   }
@@ -75,10 +72,6 @@ background-position: 10px 0 0 0;
       0 0 30px rgb(0, 0, 0, 0.8),
       inset -10px -10px 60px rgba(0, 0, 0, 0.6);
 
-    @media (max-width: responsive.$tablet) {
-      margin: 15px;
-      animation-duration: 60s;
-    }
    @media (max-width: responsive.$mobile) {
       margin: 10px;
       animation-duration: 90s;
@@ -180,11 +173,6 @@ background-position: 10px 0 0 0;
   &.bright-star-2 { top: 20%; right: 20%; animation-delay: 0.5s; }
   &.bright-star-3 { top: 35%; left: 60%; animation-delay: 1s; }
 
-    @media (max-width: responsive.$tablet) {
-    width: 3px;
-    height: 3px;
-    box-shadow: 0 0 5px white;
-  }
   @media (max-width: responsive.$mobile) {
     width: 2px;
     height: 2px;
@@ -210,9 +198,6 @@ background-position: 10px 0 0 0;
     opacity: 0;
     animation: shoot 25s linear infinite;
 
-  @media (max-width: responsive.$tablet) {
-    height: 30px;
-  }
   @media (max-width: responsive.$mobile) {
     display: none;
   }
@@ -261,11 +246,6 @@ background-position: 10px 0 0 0;
   animation: relayFloat 600s linear infinite;
   background:transparent;
 
-  @media (max-width: responsive.$tablet) {
-    width: 60px;
-    top: 60%;
-    left: -20px;
-  }
   @media (max-width: responsive.$mobile) {
     display: none;
   }
@@ -278,10 +258,6 @@ background-position: 10px 0 0 0;
   width: 50px;
   height: 50px;
 
-  @media (max-width: responsive.$tablet) {
-    width: 30px;
-    height: 30px;
-  }
 }
 .relay-image {
   width: 100%;
