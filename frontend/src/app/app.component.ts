@@ -7,9 +7,10 @@ import { BackgroundComponent } from "./core/layout/background/background.compone
 import { HeaderComponent } from "./core/layout/header/header.component";
 import { FooterComponent } from "./core/layout/footer/footer.component";
 import { NavbarComponent } from './core/layout/navbar/navbar.component';
+import { SidebarComponent } from "./core/layout/sidebar/sidebar.component";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, BouncingIconsComponent, BackgroundComponent, HeaderComponent, FooterComponent, NavbarComponent],
+  imports: [RouterOutlet, CommonModule, BouncingIconsComponent, BackgroundComponent, HeaderComponent, FooterComponent, NavbarComponent, SidebarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [

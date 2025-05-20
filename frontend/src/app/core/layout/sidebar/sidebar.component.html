@@ -1,0 +1,12 @@
+<div class="banner-container">
+    <div class="vertical-banner">
+      <div class="vertical-container">
+     <div
+    *ngFor="let icon of icons; let i = index"
+    #iconDiv
+    class="vertical-item"
+    [attr.data-index]="i"
+  >{{icon.name}}</div>
+      </div>
+    </div>
+  </div>
