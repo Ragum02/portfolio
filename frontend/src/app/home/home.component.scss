@@ -3,7 +3,7 @@
 
 .home-container{
   width:100%;
-  height:80%;
+  height:100%;
   overflow:hidden;
   display: flex;
   flex-direction: column;
@@ -30,9 +30,12 @@
       animation:glitch 12s alternate-reverse infinite;
     }
     background-color: rgba(128, 128, 128, 0.253);
-    border: 1px solid grey;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px #5c5c5c;
+    border: 5px solid rgb(128, 128, 128);
     align-self: flex-end;
     margin-right:3em;
+    margin-bottom: 5em;
     overflow-y:scroll;
     padding:2em;
     height: 80%;

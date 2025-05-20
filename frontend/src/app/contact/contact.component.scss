@@ -1,5 +1,5 @@
 @use '../app.component.scss';
-
+@use '../../_responsive' as responsive;
 .contact-container{
   display: flex;
   height: 100%;
@@ -8,18 +8,28 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+    @media (max-width: responsive.$mobile) {
+      h1{
+        display: none;
+      }
+    }
+       @media (min-width: (responsive.$mobile + 1px)) and (max-width: responsive.$desktop + 416) {
+   margin-left:10em;
+  }
 }
 
 .form-container{
   width: 70%;
   align-items: center;
+
 }
 form{
 display: flex;
 flex-direction: column;
 align-items: center;
 text-align: center;
-gap:0.5em;
+gap:1em;
+
   label{
     display: flex;
     flex-direction: column;
@@ -35,8 +45,17 @@ gap:0.5em;
   }
   input[type='submit']{
     border:none;
+    box-shadow:  0px 0px 10px rgba(95, 95, 95);
     border-radius: 5px;
+    background-color: green;
   }
+    @media (max-width: responsive.$mobile) {
+      textarea{
+        height: 10vh;
+      }
+
+  }
+
 }
 
 
