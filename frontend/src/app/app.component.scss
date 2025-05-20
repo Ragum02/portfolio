@@ -64,16 +64,10 @@
     width:80%;
   }
 
- @media (max-width: responsive.$desktop) {
-    width: 80vw;
-    height: 70vh;
-  }
-
   @media (max-width: responsive.$mobile) {
     width: 80vw;
-    height: 70vh;
+    height: 65vh;
     border-width: 1px;
-    top: 10%;
   }
 
 }

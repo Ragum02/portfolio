@@ -143,33 +143,11 @@
     }
   }
 
-
-  @media (max-width: responsive.$desktop) {
-
-    width: 90%;
-    left: 10%;
-
-    .carousel {
-      width: 90%;
-      height: 70%;
-
-      article {
-        width: 90%;
-      }
-
-      .article-active {
-        img {
-          max-height: 250px;
-        }
-      }
-    }
-  }
-
-
   @media (max-width:  responsive.$mobile) {
     width: 100%;
     padding: 0;
     height: 100%;
+    left:0%;
     h1 {
       display:none;
     }
@@ -178,10 +156,14 @@
       border-width: 2px;
       margin:auto;
       height:70%;
-
+      width: 100%;
       article {
+        figcaption{
+          font-size: 1em;
+        }
         .article-text {
-          font-size: 0.9em;
+          font-size: 16px;
+          padding: 5px;
         }
 
         .tags-container {

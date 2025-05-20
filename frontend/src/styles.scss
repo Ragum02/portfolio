@@ -1,13 +1,14 @@
 @use './reset';
 @use './app/app.component.scss';
 @font-face {
-  font-family: 'Silkscreen';
-  src: url('/fonts/Silkscreen-Regular.ttf') format('truetype');
+  font-family: 'Orbitron';
+  src: url('/fonts/Orbitron.ttf') format('truetype');
   font-style: normal;
   font-display: swap;
 }
+
 *{
-  font-family: 'Silkscreen', sans-serif;
+  font-family: Orbitron;
   color: white;
 }
 body{
