@@ -16,9 +16,6 @@
     }
 
     .vertical-banner {
-      *{
-      font-family: 'Silkscreen', sans-serif;
-      }
 
       background: transparent;
       border-top:none !important;
@@ -30,6 +27,10 @@
       overflow: hidden;
       position: relative;
       animation: bannerSlide 2s linear 1;
+
+      *{
+      font-family: 'Silkscreen', sans-serif;
+      }
     }
 
     .vertical-container {

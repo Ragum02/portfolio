@@ -10,9 +10,6 @@
 .header {
       background: linear-gradient(45deg,
         rgb(255, 0, 229,0.20), rgb(0, 255, 255,0.20), rgb(255, 0, 229, 0.20), rgba(0, 255, 255, 0.20));
-  *{
-   font-family: 'Silkscreen', sans-serif  !important;;
-  }
   padding: 1em 0;
   width: 100vw;
   height: 3vh;
@@ -43,8 +40,10 @@
     @media (max-width: responsive.$mobile) {
       gap: 20em;
       padding: 0 0.5em;
-
     }
+      *{
+   font-family: 'Silkscreen', sans-serif  !important;;
+  }
   }
 
   @media (max-width: responsive.$mobile) {
