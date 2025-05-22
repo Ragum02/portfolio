@@ -4,9 +4,13 @@ import { Observable } from "rxjs";
 import { IProject } from "../../../@types/project";
 import { ITag } from "../../../@types/tag";
 import { environment } from '../../environments/environment'
+import { IEmail } from "../../../@types/email";
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
+
+  success = false;
+
   private http = inject(HttpClient);
 
 
@@ -18,5 +22,9 @@ export class ApiService {
 
   getAllTags(): Observable<ITag[]> {
     return this.http.get<ITag[]>(`${this.apiUrl}/tags`);
+  }
+
+  public sendEmail(data: IEmail): Observable<IEmail> {
+    return this.http.post<IEmail>(`${this.apiUrl}/sendmail`, data);
   }
 }

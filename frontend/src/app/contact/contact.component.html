@@ -4,17 +4,33 @@
 
 
 <div class="form-container">
-<form>
-  <label for="email">Veuillez renseigner votre email:
-  <input autocomplete="email" id="email" type="email" name="email" placeholder="votre@email.com"/>
+<form [formGroup]="contactData" (ngSubmit)="onSubmit()">
+  <label for="useremail">Veuillez renseigner votre email:
+<span *ngIf="useremail!.invalid && (submitted || useremail!.touched)" class="invalid">
+  Adresse e-mail invalide.
+</span>
+  <input autocomplete="email" id="useremail" type="email" formControlName="useremail" placeholder="votre@email.com" required/>
   </label>
-  <label for="mail-title">Veuillez renseigner l'objet de votre message:
-  <input id="mail-title" type="text" name="mail-title" placeholder="L'objet de votre message">
+  <label for="subject">Veuillez renseigner l'objet de votre message:
+<span *ngIf="subject!.invalid && (submitted || subject!.touched)" class="invalid">
+  Un sujet valide est requis.
+</span>
+  <input id="subject" type="text" placeholder="L'objet de votre message" formControlName="subject" required>
   </label>
-  <label for="mail-message">Veuillez renseigner votre message:
-  <textarea id="mail-message" placeholder="Votre message" name="mail-message" rows="12"></textarea>
+  <label for="message">Veuillez renseigner votre message:
+<span *ngIf="message!.invalid && (submitted || message!.touched)" class="invalid">
+  Un message valide est requis.
+</span>
+  <textarea id="message" placeholder="Votre message" rows="12" formControlName="message" required></textarea>
 </label>
-<input aria-label="submit button" type="submit" class="dot--green">
+<input aria-label="submit button" type="submit" class="dot--green" value="Envoyer">
+<div *ngIf="success" class="success">
+  {{ success }}
+</div>
+
+<div *ngIf="error" class="invalid">
+  {{ error }}
+</div>
 </form>
 </div>
 </div>
