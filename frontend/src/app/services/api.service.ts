@@ -29,7 +29,7 @@ export class ApiService {
   }
 
   csrfToken() {
-    return this.http.get('http://localhost:9000/sanctum/csrf-cookie', {
+    return this.http.get(`${this.apiUrl}/sanctum/csrf-cookie`, {
       withCredentials: true
     });
   }
