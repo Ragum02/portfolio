@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { IProject } from "../../../@types/project";
@@ -24,7 +24,13 @@ export class ApiService {
     return this.http.get<ITag[]>(`${this.apiUrl}/tags`);
   }
 
-  public sendEmail(data: IEmail): Observable<IEmail> {
-    return this.http.post<IEmail>(`${this.apiUrl}/sendmail`, data);
+  public sendEmail(data: IEmail, headers: HttpHeaders): Observable<IEmail> {
+    return this.http.post<IEmail>(`${this.apiUrl}/sendmail`, data, { headers, withCredentials:true});
+  }
+
+  csrfToken() {
+    return this.http.get('http://localhost:9000/sanctum/csrf-cookie', {
+      withCredentials: true
+    });
   }
 }

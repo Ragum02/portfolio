@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
-import { IEmail } from '../../../@types/email';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -35,28 +35,47 @@ export class ContactComponent {
     return this.contactData.get('subject');
   }
 
-onSubmit() {
-  this.submitted = true;
+  getCookie(name: string): string | null {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  }
 
-  this.success = null;
-  this.error = null;
+  onSubmit() {
+    this.submitted = true;
 
-  if (this.contactData.valid) {
-    this.ApiService.sendEmail(this.contactData.value).subscribe({
-  next: res => {
-        this.success = 'Message envoyé avec succès !';
-        this.error = null;
-        this.contactData.reset();
-        this.submitted = false;
-        this.contactData.reset();
-        this.contactData.markAsPristine();
-        this.contactData.markAsUntouched();
-      },
-      error: err => {
-        this.error = 'Erreur lors de l\'envoi de votre message, veuillez réessayer.';
-        this.success = null;
-      }
-    });
+    this.success = null;
+    this.error = null;
+
+    if (this.contactData.valid) {
+      // On recup le token
+      this.ApiService.csrfToken().subscribe({
+        next: () => {
+          const token = this.getCookie('XSRF-TOKEN');
+
+          const headers = new HttpHeaders({
+            'X-XSRF-TOKEN': decodeURIComponent(token || '')
+          });
+
+          this.ApiService.sendEmail(this.contactData.value, headers).subscribe({
+            next: res => {
+              this.success = 'Message envoyé avec succès !';
+              this.error = null;
+              this.submitted = false;
+              this.contactData.reset();
+              this.contactData.markAsPristine();
+              this.contactData.markAsUntouched();
+            },
+            error: err => {
+              this.error = 'Erreur lors de l\'envoi de votre message, veuillez réessayer.';
+              this.success = null;
+            }
+          });
+        },
+        error: err => {
+          this.error = 'Erreur lors de l\'initialisation CSRF.';
+        }
+      });
+    }
   }
 }
-}
+
