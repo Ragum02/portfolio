@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactMailController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TagController;
 use Illuminate\Http\Request;
@@ -29,3 +30,5 @@ Route::prefix('/tags')->name('tags.')->controller(TagController::class)->group(
         Route::delete('/delete/{tag}', "deleteTag");
         }
 );
+
+Route::post('/sendmail', [ContactMailController::class, 'sendmail']);
