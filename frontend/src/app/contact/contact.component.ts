@@ -72,7 +72,8 @@ export class ContactComponent {
           });
         },
         error: err => {
-          this.error = 'Erreur lors de l\'initialisation CSRF.';
+              this.error = 'Erreur lors de l\'envoi de votre message, veuillez réessayer.';
+              this.success = null;
         }
       });
     }
