@@ -5,8 +5,8 @@ $allowedOrigins = [];
 if (env('APP_ENV') === 'local') {
     $allowedOrigins = [
         'http://localhost',
+        'http://localhost:4200',
         'http://127.0.0.1:4200',
-        '*',
     ];
 } else {
     $allowedOrigins = [
@@ -38,12 +38,12 @@ return [
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['Content-Type', 'X-Requested-With', 'Authorization'],
+    'allowed_headers' => ['Content-Type', 'X-Requested-With', 'Authorization', 'X-XSRF-TOKEN' ],
 
     'exposed_headers' => [],
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];
