@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-contact',
@@ -23,7 +24,7 @@ export class ContactComponent {
     }
   )
 
-  constructor(private ApiService: ApiService) { }
+  constructor(private apiService: ApiService, private authService: AuthService) { }
 
   get useremail() {
     return this.contactData.get('useremail');
@@ -48,7 +49,7 @@ export class ContactComponent {
 
     if (this.contactData.valid) {
       // On recup le token
-      this.ApiService.csrfToken().subscribe({
+      this.authService.csrfToken().subscribe({
         next: () => {
           const token = this.getCookie('XSRF-TOKEN');
 
@@ -56,7 +57,7 @@ export class ContactComponent {
             'X-XSRF-TOKEN': decodeURIComponent(token || '')
           });
 
-          this.ApiService.sendEmail(this.contactData.value, headers).subscribe({
+          this.apiService.sendEmail(this.contactData.value, headers).subscribe({
             next: res => {
               this.success = 'Message envoyé avec succès !';
               this.error = null;

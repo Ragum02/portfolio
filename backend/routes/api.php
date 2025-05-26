@@ -7,10 +7,6 @@ use App\Http\Controllers\TagController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
-
 
 Route::prefix('/projects')->name('projects.')->controller(ProjectController::class)->group(
     function () {
@@ -36,4 +32,6 @@ Route::post('/login', [AuthController::class, 'signin']);
 
 Route::post('/sendmail', [ContactMailController::class, 'sendmail']);
 
-
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');

@@ -26,12 +26,8 @@ export class ApiService {
   }
 
   public sendEmail(data: IEmail, headers: HttpHeaders): Observable<IEmail> {
-    return this.http.post<IEmail>(`${this.apiUrl}/sendmail`, data, { headers, withCredentials:true});
+    return this.http.post<IEmail>(`${this.apiUrl}/sendmail`, data, { headers, withCredentials: true });
   }
 
-  public csrfToken() {
-    return this.http.get(`${this.baseUrl}/sanctum/csrf-cookie`, {
-      withCredentials: true
-    });
-  }
+
 }
