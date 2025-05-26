@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactMailController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TagController;
@@ -31,8 +32,8 @@ Route::prefix('/tags')->name('tags.')->controller(TagController::class)->group(
         }
 );
 
-Route::get('/sanctum/csrf-cookie', function () {
-    return response()->json(['message' => 'CSRF cookie set']);
-});
+Route::post('/login', [AuthController::class, 'signin']);
 
 Route::post('/sendmail', [ContactMailController::class, 'sendmail']);
+
+
