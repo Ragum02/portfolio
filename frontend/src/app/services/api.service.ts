@@ -14,13 +14,14 @@ export class ApiService {
   private http = inject(HttpClient);
 
 
-  private apiUrl = environment.backendUrl;
+  private apiUrl = environment.apiUrl;
+  private baseUrl = environment.baseUrl;
 
-  getAllProjects(): Observable<IProject[]> {
+  public getAllProjects(): Observable<IProject[]> {
     return this.http.get<IProject[]>(`${this.apiUrl}/projects`);
   }
 
-  getAllTags(): Observable<ITag[]> {
+  public getAllTags(): Observable<ITag[]> {
     return this.http.get<ITag[]>(`${this.apiUrl}/tags`);
   }
 
@@ -28,8 +29,8 @@ export class ApiService {
     return this.http.post<IEmail>(`${this.apiUrl}/sendmail`, data, { headers, withCredentials:true});
   }
 
-  csrfToken() {
-    return this.http.get(`${this.apiUrl}/sanctum/csrf-cookie`, {
+  public csrfToken() {
+    return this.http.get(`${this.baseUrl}/sanctum/csrf-cookie`, {
       withCredentials: true
     });
   }
