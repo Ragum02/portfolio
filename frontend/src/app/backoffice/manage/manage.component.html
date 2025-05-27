@@ -21,8 +21,10 @@
 </div>
 
 <dialog #editDialog cdkDrag>
-  <div cdkDragHandle>Handle</div>
+  <div class="dialog-container">
+      <img class="handle-icon" alt="" src="assets/drag-handle.svg" cdkDragHandle>
   <form method="dialog">
+
     <h2>Éditer le projet</h2>
 
     <label>
@@ -40,4 +42,5 @@
       <button type="submit">Sauvegarder</button>
     </menu>
   </form>
+  </div>
 </dialog>
