@@ -1,5 +1,8 @@
-<footer class="footer">
-  <div class="screen-header audio-container"><audio #audioPlayer (timeupdate)="updateTime()" (loadedmetadata)="initAudio()">
+<footer class="footer" cdkDrag cdkDragBoundary="body">
+        <img class="handle-icon" alt="" src="assets/drag-handle.svg" cdkDragHandle>
+
+  <div class="screen-header audio-container">
+    <audio #audioPlayer (timeupdate)="updateTime()" (loadedmetadata)="initAudio()">
     <source src="assets/audio/Stay-slowed-reverb.mp3" type="audio/mpeg">
   </audio>
 

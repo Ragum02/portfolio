@@ -1,0 +1,25 @@
+button{
+  background-color: black;
+  margin: 5px;
+}
+
+.manage-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  height: 80%;
+    .projects-list-container{
+      margin-top: 1em;
+      overflow:auto;
+      height: 70%;
+    }
+    .tags-list-container{
+      margin-top: 1em;
+      overflow:auto;
+    }
+}
+
+dialog{
+  z-index:2;
+  position: absolute;
+}

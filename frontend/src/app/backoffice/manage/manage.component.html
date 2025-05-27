@@ -1,17 +1,43 @@
 <div *ngIf='isLogged' class="manage-container">
 <div class="projects-list-container">
-
+  <ul>
+    <li *ngFor="let project of projects; let i = index">{{project.name}}<button (click)="openDialog(project)">Edit</button><button>Delete</button></li>
+  </ul>
 
   <form action="POST" class="project-add">
 
 </form>
 </div>
 <div class="tags-list-container">
-
-Salut
+  <ul>
+    <li *ngFor="let tag of tags; let i = index">{{tag.name}}<button>Edit</button><button>Delete</button></li>
+  </ul>
 
 <form action="POST" class="tag-add">
 
 </form>
 </div>
+
 </div>
+
+<dialog #editDialog cdkDrag>
+  <div cdkDragHandle>Handle</div>
+  <form method="dialog">
+    <h2>Éditer le projet</h2>
+
+    <label>
+      Nom :
+      <input type="text" [(ngModel)]="editableProject.name" name="name" required>
+    </label>
+
+    <label>
+      Description :
+      <textarea [(ngModel)]="editableProject.content" name="description"></textarea>
+    </label>
+
+    <menu>
+      <button type="button" (click)="editDialog.close()">Annuler</button>
+      <button type="submit">Sauvegarder</button>
+    </menu>
+  </form>
+</dialog>

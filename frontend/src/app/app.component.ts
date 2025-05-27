@@ -8,11 +8,15 @@ import { HeaderComponent } from "./core/layout/header/header.component";
 import { FooterComponent } from "./core/layout/footer/footer.component";
 import { NavbarComponent } from './core/layout/navbar/navbar.component';
 import { SidebarComponent } from "./core/layout/sidebar/sidebar.component";
+import { CdkDrag, CdkDragHandle } from '@angular/cdk/drag-drop';
+
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, BouncingIconsComponent, BackgroundComponent, HeaderComponent, FooterComponent, NavbarComponent, SidebarComponent],
+  imports: [RouterOutlet, CommonModule, BouncingIconsComponent, BackgroundComponent, HeaderComponent, FooterComponent, NavbarComponent, SidebarComponent, CdkDrag, CdkDragHandle],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  standalone: true,
   animations: [
     trigger('routeAnimations', [
       transition('* <=> *', [

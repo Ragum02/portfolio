@@ -12,19 +12,25 @@ Route::prefix('/projects')->name('projects.')->controller(ProjectController::cla
     function () {
         Route::get('/', 'getAllProjects');
         Route::get('/{project}', 'getOneProject');
-        Route::post('/create', 'createProject');
-        Route::patch('/{project}/edit/', 'editProject');
-        Route::delete('/{project}/delete/', 'deleteProject');
-         }
+
+        Route::middleware('auth:sanctum')->group(function () {
+            Route::post('/create', 'createProject');
+            Route::patch('/{project}/edit/', 'editProject');
+            Route::delete('/{project}/delete/', 'deleteProject');
+            });
+        }
 );
 
 Route::prefix('/tags')->name('tags.')->controller(TagController::class)->group(
     function () {
         Route::get('/', 'getAllTags');
         Route::get('/{tag}', 'getOneTag');
-        Route::post('/create', 'createTag');
-        Route::patch('/edit/{tag}', "editTag");
-        Route::delete('/delete/{tag}', "deleteTag");
+
+        Route::middleware('auth:sanctum')->group(function () {
+            Route::post('/create', 'createTag');
+            Route::patch('/edit/{tag}', "editTag");
+            Route::delete('/delete/{tag}', "deleteTag");
+            });
         }
 );
 

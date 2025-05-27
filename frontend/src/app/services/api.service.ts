@@ -15,7 +15,7 @@ export class ApiService {
 
 
   private apiUrl = environment.apiUrl;
-  private baseUrl = environment.baseUrl;
+
 
   public getAllProjects(): Observable<IProject[]> {
     return this.http.get<IProject[]>(`${this.apiUrl}/projects`);
@@ -28,6 +28,5 @@ export class ApiService {
   public sendEmail(data: IEmail, headers: HttpHeaders): Observable<IEmail> {
     return this.http.post<IEmail>(`${this.apiUrl}/sendmail`, data, { headers, withCredentials: true });
   }
-
 
 }

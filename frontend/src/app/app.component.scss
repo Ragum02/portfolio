@@ -24,9 +24,9 @@
 
 .main-container {
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
+  // top: 10%;
+  // left: 50%;
+  // transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,7 +81,22 @@
 }
 
 @keyframes showContainer{
-  0%{transform:translateY(-100%) translateX(-50%)}
-  100%{transform:translateY(0%) translateX(-50%)};
+  0%{transform:translateY(-100%)}
+  100%{transform:translateY(0%)};
 }
 
+.handle-icon{
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  right:0;
+}
+
+  .drag-wrapper{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

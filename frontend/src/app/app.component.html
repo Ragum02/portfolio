@@ -2,7 +2,9 @@
 
 <app-header></app-header>
 <app-sidebar></app-sidebar>
-<div class="main-container">
+<div class="drag-wrapper">
+<div class="main-container" cdkDrag cdkDragBoundary="body">
+  <img class="handle-icon" alt="" src="assets/drag-handle.svg" cdkDragHandle>
   <aside>
     <app-navbar></app-navbar>
 </aside>
@@ -11,5 +13,5 @@
 </main>
 <app-boucing-icons></app-boucing-icons>
 </div>
-
+</div>
 <app-footer></app-footer>
