@@ -90,6 +90,11 @@
   height: 30px;
   position: fixed;
   right:0;
+    @media (max-width: responsive.$mobile) {
+      left:0;
+      z-index:3;
+  }
+
 }
 
   .drag-wrapper{
