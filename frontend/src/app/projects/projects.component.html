@@ -7,8 +7,7 @@
 
     <article *ngFor="let project of projects; let i=index" [ngClass]="{'article-active' : selectedIndex === i}" class="fade">
       <figure>
-
-      <img [src]="fullImageUrl(project.image)" alt="Image du projet {{ i + 1 }}"  loading="lazy" width="300" height="250"/>
+      <img [src]="fullImageUrl(project.image)" alt="Image du projet {{ i + 1 }}"  loading="lazy" />
       <figcaption>
         {{project.name}}</figcaption>
         </figure>

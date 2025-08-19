@@ -24,45 +24,56 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-            Tag::truncate();
+        Tag::truncate();
 
         Project::truncate();
-$tags = [
-    ['name' => 'Laravel', 'icon' => '/icons/laravel.svg'],
-    ['name' => 'Css3', 'icon' => '/icons/css3.svg'],
-    ['name' => 'React', 'icon' => '/icons/react.svg'],
-    ['name' => 'Angular', 'icon' => '/icons/angular.png'],
-    ['name' => 'Docker', 'icon' => '/icons/docker.svg'],
-    ['name' => 'JavaScript', 'icon' => '/icons/javascript.svg'],
-    ['name' => 'NodeJS', 'icon' => '/icons/nodejs.svg'],
-    ['name' => 'HTML5', 'icon' => '/icons/html5.svg'],
-    ['name' => 'Sass', 'icon' => '/icons/sass.svg'],
-    ['name' => 'Tailwind', 'icon' => '/icons/tailwindcss.svg'],
-    ['name' => 'PostgreSQL', 'icon' => '/icons/postgresql.svg'],
-    ['name' => 'MongoDB', 'icon' => '/icons/mongodb.svg'],
-    ['name' => 'Git', 'icon' => '/icons/git.svg'],
-    ['name' => 'GitHub', 'icon' => '/icons/github.svg'],
-    //['name' => 'GraphQL', 'icon' => '/icons/graphql.svg'],
-    //['name' => 'Figma', 'icon' => '/icons/figma.svg'],
-    ['name' => 'NestJS', 'icon' => '/icons/nestjs.svg'],
-    ['name' => 'NextJS', 'icon' => '/icons/nextjs.svg'],
-    ['name' => 'ViteJS', 'icon' => '/icons/vitejs.svg'],
-    ['name' => 'TypeScript', 'icon' => '/icons/typescript.svg'],
-];
+        $tags = [
+            ['name' => 'Laravel', 'icon' => '/icons/laravel.svg'],
+            ['name' => 'Css3', 'icon' => '/icons/css3.svg'],
+            ['name' => 'React', 'icon' => '/icons/react.svg'],
+            ['name' => 'Angular', 'icon' => '/icons/angular.png'],
+            ['name' => 'Docker', 'icon' => '/icons/docker.svg'],
+            ['name' => 'JavaScript', 'icon' => '/icons/javascript.svg'],
+            ['name' => 'NodeJS', 'icon' => '/icons/nodejs.svg'],
+            ['name' => 'HTML5', 'icon' => '/icons/html5.svg'],
+            ['name' => 'Sass', 'icon' => '/icons/sass.svg'],
+            ['name' => 'Tailwind', 'icon' => '/icons/tailwindcss.svg'],
+            ['name' => 'PostgreSQL', 'icon' => '/icons/postgresql.svg'],
+            ['name' => 'MongoDB', 'icon' => '/icons/mongodb.svg'],
+            ['name' => 'Git', 'icon' => '/icons/git.svg'],
+            ['name' => 'GitHub', 'icon' => '/icons/github.svg'],
+            ['name' => 'Expo', 'icon' => '/icons/expo.svg'],
+            ['name' => 'Firebase', 'icon' => '/icons/firebase.svg'],
+            //['name' => 'GraphQL', 'icon' => '/icons/graphql.svg'],
+            //['name' => 'Figma', 'icon' => '/icons/figma.svg'],
+            ['name' => 'NestJS', 'icon' => '/icons/nestjs.svg'],
+            ['name' => 'NextJS', 'icon' => '/icons/nextjs.svg'],
+            ['name' => 'ViteJS', 'icon' => '/icons/vitejs.svg'],
+            ['name' => 'TypeScript', 'icon' => '/icons/typescript.svg'],
+        ];
 
-foreach ($tags as $tag) {
-    Tag::create($tag);
-}
+        foreach ($tags as $tag) {
+            Tag::create($tag);
+        }
 
-$projects = [
+        $projects = [
+            [
+                'name' => 'Cyclobuddy (WIP)',
+                'content' => "Cyclobuddy est une application mobile en cours de développement, développée avec React Native et Expo, utilisant Tailwind via NativeWind pour le design et Firebase pour l'authentification, la base de données et le stockage.
+                              Elle permet aux cyclistes de publier et découvrir des sorties à proximité, filtrer par type de parcours et niveau, et rejoindre des discussions de groupe en temps réel, avec un focus sur la simplicité, la performance et l'expérience utilisateur.",
+                'image' => '/screenshots/cyclobuddy.png',
+                'url' => 'https://github.com/Ragum02/cyclobuddy',
+                'tags' => ['React', 'Expo', 'Firebase', 'Tailwind'],
+            ],
             [
                 'name' => 'Portfolio',
-                'content' => "Mon petit portfolio, créé en Laravel pour le backend, Angular 19 & SCSS pour le frontend, et SQLite3 pour la base de données et le tout Dockeriser. Lors de ma formation, j'ai utilisé React et Node, mais j'ai voulu changer un peu pour le plaisir, avec un thème un peu SF des années 2000, nourri à coups de Mass Effect, DOOM 3 et autres...",
+                'content' => "Mon portfolio a été développé avec Laravel pour le backend, Angular 19 et SCSS pour le frontend, et SQLite3 pour la base de données, le tout dockerisé.
+                              Lors de ma formation, j’ai principalement travaillé avec React et Node.js, mais j’ai choisi ici d’explorer de nouvelles technologies pour le plaisir, en créant un thème inspiré de l’univers SF des années 2000, influencé par des titres comme Mass Effect ou DOOM 3.",
                 'image' => '/screenshots/portfolio.png',
                 'url' => '#',
                 'tags' => ['Laravel', 'Angular', 'Sass', 'Docker', 'HTML5'],
             ],
-                        [
+            [
                 'name' => 'Challenge conception',
 
                 'content' => 'Un challenge d\'entrainement a la conception en total autonomie.
@@ -78,7 +89,7 @@ $projects = [
                 'url' => 'https://www.ranvex.com/',
                 'tags' => [],
             ],
-                        [
+            [
                 'name' => 'Okanban',
                 'content' => 'Challenge bonus donné par un formateur pour me permettre de faire mes premiers pas sur Nest.JS, TypeScript et TypeORM , pour la réalisation d\une simple API
                 ',
@@ -123,7 +134,7 @@ $projects = [
             ],
             [
                 'name' => 'To-Do',
-                'content' => 'Premier essai debut 2024 en total autonomie avec Odin Project en paralèle, c\'est toujours marrant de voir d\'ou l\'on vien :D ',
+                'content' => 'Premier prototype développé en autonomie début 2024, parallèlement à ma formation sur Odin Project. C\'est intéressant de constater le chemin parcouru depuis ce premier essai.',
                 'image' => '/screenshots/todo.png',
                 'url' => 'https://to-do-day.vercel.app/',
                 'tags' => ['JavaScript', 'HTML5', 'Css3'],
@@ -143,7 +154,5 @@ $projects = [
             $tags = Tag::whereIn('name', $projectData['tags'])->get();
             $project->tags()->attach($tags);
         }
-
-
     }
 }
