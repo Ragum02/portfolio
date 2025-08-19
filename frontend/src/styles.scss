@@ -1,17 +1,17 @@
-@use './reset';
-@use './app/app.component.scss';
+@use "./reset";
+@use "./app/app.component.scss";
 @font-face {
-  font-family: 'Orbitron';
-  src: url('/fonts/Orbitron.ttf') format('truetype');
+  font-family: "Orbitron";
+  src: url("/fonts/Orbitron.ttf") format("truetype");
   font-style: normal;
   font-display: swap;
 }
 
-*{
+* {
   font-family: Orbitron;
   color: white;
 }
-body{
+body {
   overflow: hidden;
   height: 100vh;
   position: relative;
@@ -107,31 +107,88 @@ body{
   }
 }
 
-h1{
+h1 {
+  align-self: center;
+  font-size: 1.5em;
+  text-align: center;
   text-shadow: rgb(234, 0, 255) 3px 1px 3px;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 8px;
+  animation: h1-flicker 6s infinite alternate ease-in-out;
 }
 
-
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #790073 #0098a3;
+@keyframes h1-flicker {
+  0% {
+    opacity: 1;
+    text-shadow: rgb(234, 0, 255) 3px 1px 3px;
+    transform: translate(0, 0);
   }
-
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 100px;
+  10% {
+    opacity: 0.8;
+    text-shadow: rgb(255, 0, 255) 2px 0 2px;
+    transform: translate(-0.5px, 0.5px);
   }
-
-  *::-webkit-scrollbar-track {
-    background: #01003d;
+  20% {
+    opacity: 0.4;
+    text-shadow: rgb(255, 0, 255) 2px 0 2px;
+    transform: translate(-1px, 1px);
   }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #0098a3;
-    border-radius: 2px;
-    border: 9px solid #ff0000;
+  30% {
+    opacity: 0.9;
+    text-shadow: rgb(234, 0, 255) 3px 1px 3px;
+    transform: translate(0.5px, -0.5px);
   }
+  40% {
+    opacity: 0.6;
+    text-shadow: rgb(234, 0, 255) 3px 1px 3px;
+    transform: translate(1px, -1px);
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: rgb(255, 0, 255) 2px 0 2px;
+    transform: translate(-0.5px, 0);
+  }
+  60% {
+    opacity: 0.5;
+    text-shadow: rgb(255, 0, 255) 2px 0 2px;
+    transform: translate(-1px, 0);
+  }
+  70% {
+    opacity: 0.95;
+    text-shadow: rgb(234, 0, 255) 3px 1px 3px;
+    transform: translate(0.5px, 0.5px);
+  }
+  80% {
+    opacity: 0.7;
+    text-shadow: rgb(234, 0, 255) 3px 1px 3px;
+    transform: translate(0, 1px);
+  }
+  90% {
+    opacity: 0.85;
+    text-shadow: rgb(255, 0, 255) 2px 0 2px;
+    transform: translate(-0.5px, -0.5px);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: rgb(234, 0, 255) 3px 1px 3px;
+    transform: translate(0, 0);
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #790073 #0098a3;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 100px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #01003d;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0098a3;
+  border-radius: 2px;
+  border: 9px solid #ff0000;
+}
