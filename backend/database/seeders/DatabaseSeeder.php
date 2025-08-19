@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::create([
-            'name' => env('ADMIN_NAME'),
-            'password' => bcrypt(env('ADMIN_PASSWORD')),
-        ]);
+        // User::create([
+        //     'name' => env('ADMIN_NAME'),
+        //     'password' => bcrypt(env('ADMIN_PASSWORD')),
+        // ]);
 
 
         Tag::truncate();
