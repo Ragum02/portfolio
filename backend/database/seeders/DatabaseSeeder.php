@@ -45,11 +45,13 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Expo', 'icon' => '/icons/expo.svg'],
             ['name' => 'Firebase', 'icon' => '/icons/firebase.svg'],
             //['name' => 'GraphQL', 'icon' => '/icons/graphql.svg'],
-            //['name' => 'Figma', 'icon' => '/icons/figma.svg'],
+            ['name' => 'Figma', 'icon' => '/icons/figma.svg'],
             ['name' => 'NestJS', 'icon' => '/icons/nestjs.svg'],
             ['name' => 'NextJS', 'icon' => '/icons/nextjs.svg'],
             ['name' => 'ViteJS', 'icon' => '/icons/vitejs.svg'],
             ['name' => 'TypeScript', 'icon' => '/icons/typescript.svg'],
+            ['name' => 'Webflow', 'icon' => '/icons/webflow.svg'],
+            ['name' => 'Wix', 'icon' => '/icons/wix.svg'],
         ];
 
         foreach ($tags as $tag) {
@@ -75,7 +77,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Challenge conception',
-
                 'content' => 'Un challenge d\'entrainement a la conception en total autonomie.
                 ',
                 'image' => '/screenshots/training-conception.png',
@@ -87,7 +88,7 @@ class DatabaseSeeder extends Seeder
                 'content' => 'Un petit projet fait sous Wix ancienne version, en guise de MVP.',
                 'image' => '/screenshots/ranvexwix.png',
                 'url' => 'https://www.ranvex.com/',
-                'tags' => [],
+                'tags' => ['Wix'],
             ],
             [
                 'name' => 'Okanban',

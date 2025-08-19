@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
             $table->timestamps();
 
-            // Optionnel: Pour éviter les doublons
+
             $table->unique(['project_id', 'tag_id']);
         });
     }
